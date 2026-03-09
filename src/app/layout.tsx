@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AosInitializer from "@/components/AosInitializer";
 
 const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
       </head>
-      <body
-        className={`${robotoSlab.variable} d-flex flex-column min-vh-100`}
-      >
+      <body className={`${robotoSlab.variable} d-flex flex-column min-vh-100`}>
+        <AosInitializer />
         <Header />
         <main className="flex-grow-1">{children}</main>
         <Footer />

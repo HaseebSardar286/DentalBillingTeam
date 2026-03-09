@@ -23,7 +23,7 @@ body {
 
 .social-icon:hover {
   transform: translateY(-3px) !important;
-  background-color: #0f857a !important; /* Slightly darker teal on hover */
+  background-color: #1d4ed8 !important; /* Slightly darker blue on hover */
 }
 
 a.hover-focus-teal {
@@ -31,5 +31,5 @@ a.hover-focus-teal {
 }
 
 a.hover-focus-teal:hover {
-  color: #13a195 !important;
+  color: #2563eb !important;
 }
