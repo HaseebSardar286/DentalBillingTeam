@@ -50,75 +50,113 @@ export default function Contact() {
 
   return (
     <>
-      {/* 1. Page Hero Banner */}
+      {/* Modern SaaS Hero Section */}
       <section
-        className="position-relative py-5 d-flex flex-column align-items-center justify-content-center"
-        style={{
-          minHeight: "35vh",
-          backgroundColor: "#0f172a",
-          overflow: "hidden",
-        }}
+        className="position-relative overflow-hidden d-flex flex-column justify-content-center"
+        style={{ backgroundColor: "#0f172a", minHeight: "40vh", paddingTop: "120px", paddingBottom: "80px" }}
       >
-        {/* Faint Background Image */}
         <div
-          className="position-absolute w-100 h-100 top-0 start-0"
-          style={{
-            backgroundImage: "url('/images/dentist_success.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.1,
-            zIndex: 0,
-          }}
-        ></div>
-
-        <div
-          className="container position-relative text-center text-white"
-          style={{ zIndex: 1 }}
-          data-aos="fade-up"
+          className="container position-relative z-2 text-center text-white"
+          style={{ maxWidth: "900px" }}
         >
-          <h1 className="display-4 fw-bold mb-3">Contact Us</h1>
-          <p className="lead fw-light mx-auto" style={{ maxWidth: "700px" }}>
-            Reach out to our dental billing experts today. We are here to answer
-            your questions and help your practice thrive.
+          <div
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
+          >
+            <span
+              className="badge rounded-pill fw-bold"
+              style={{ backgroundColor: "#2563eb", color: "#fff" }}
+            >
+              Contact Us
+            </span>
+            <span className="fs-6 fw-medium text-white">
+              We are here to help
+            </span>
+          </div>
+
+          <h1
+            className="display-3 fw-bold mb-4 text-white"
+            style={{
+              letterSpacing: "-1px",
+              lineHeight: "1.1",
+            }}
+          >
+            Reach out to our dental billing experts today.
+          </h1>
+          <p
+            className="lead mx-auto mb-5"
+            style={{
+              maxWidth: "800px",
+              fontSize: "1.25rem",
+              lineHeight: "1.8",
+              color: "#e2e8f0",
+            }}
+          >
+            We are here to answer your questions and help your practice thrive.
+            Connect with our billing professionals below.
           </p>
+        </div>
+
+        {/* Decorative background element background */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden pointer-events-none"
+          style={{ zIndex: 1, opacity: 0.15 }}
+        >
+          <div
+            className="position-absolute rounded-circle bg-white"
+            style={{
+              width: "500px",
+              height: "500px",
+              top: "-150px",
+              right: "-100px",
+              filter: "blur(60px)",
+            }}
+          ></div>
+          <div
+            className="position-absolute rounded-circle"
+            style={{
+              width: "400px",
+              height: "400px",
+              bottom: "-100px",
+              left: "-100px",
+              filter: "blur(80px)",
+              backgroundColor: "#2563eb",
+            }}
+          ></div>
         </div>
       </section>
 
-      {/* 2. Contact Information Grid */}
-      <section
-        className="py-5"
-        style={{
-          backgroundColor: "#f8fafc",
-          marginTop: "-30px",
-          paddingBottom: "80px !important",
-        }}
-      >
-        <div className="container position-relative" style={{ zIndex: 2 }}>
-          <div className="row g-4 justify-content-center">
+      {/* Contact Info Bento Layout */}
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+        <div className="container py-5 mt-4">
+          <div
+            className="row g-4 justify-content-center"
+            style={{ marginTop: "-120px", position: "relative", zIndex: 5 }}
+          >
             {/* Phone Card */}
-            <div
-              className="col-12 col-md-4"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div className="card h-100 border-0 shadow-sm p-4 text-center rounded-4 bg-white hover-focus-teal">
-                <div className="d-flex justify-content-center mb-4 mt-2">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      backgroundColor: "#dbeafe",
-                      color: "#2563eb",
-                    }}
-                  >
-                    <i className="fa-solid fa-phone fs-3"></i>
-                  </div>
+            <div className="col-12 col-md-4">
+              <div
+                className="h-100 p-5 bg-white rounded-4 shadow-sm border border-1 text-center"
+                style={{ borderColor: "#e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-phone fs-3"></i>
                 </div>
-                <h4 className="fw-bold mb-3 h5" style={{ color: "#0f172a" }}>
+                <h3 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
                   Call Us
-                </h4>
-                <p className="text-muted small mb-2">
+                </h3>
+                <p className="fs-6 mb-3" style={{ color: "#475569" }}>
                   Speak directly with a specialist.
                 </p>
                 <a
@@ -132,34 +170,31 @@ export default function Contact() {
             </div>
 
             {/* Email Card */}
-            <div
-              className="col-12 col-md-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div className="card h-100 border-0 shadow-sm p-4 text-center rounded-4 bg-white hover-focus-teal">
-                <div className="d-flex justify-content-center mb-4 mt-2">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      backgroundColor: "#dbeafe",
-                      color: "#2563eb",
-                    }}
-                  >
-                    <i className="fa-solid fa-envelope fs-3"></i>
-                  </div>
+            <div className="col-12 col-md-4">
+              <div
+                className="h-100 p-5 bg-white rounded-4 shadow-sm border border-1 text-center"
+                style={{ borderColor: "#e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-envelope fs-3"></i>
                 </div>
-                <h4 className="fw-bold mb-3 h5" style={{ color: "#0f172a" }}>
+                <h3 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
                   Email Us
-                </h4>
-                <p className="text-muted small mb-2">
+                </h3>
+                <p className="fs-6 mb-3" style={{ color: "#475569" }}>
                   We reply within 24 hours.
                 </p>
                 <a
                   href="mailto:admin@dentalbilingteam.com"
-                  className="fw-bold fs-5 text-decoration-none"
+                  className="fw-bold fs-5 text-decoration-none text-break"
                   style={{ color: "#2563eb" }}
                 >
                   admin@dentalbilingteam.com
@@ -168,30 +203,29 @@ export default function Contact() {
             </div>
 
             {/* Location Card */}
-            <div
-              className="col-12 col-md-4"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div className="card h-100 border-0 shadow-sm p-4 text-center rounded-4 bg-white hover-focus-teal">
-                <div className="d-flex justify-content-center mb-4 mt-2">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      backgroundColor: "#dbeafe",
-                      color: "#2563eb",
-                    }}
-                  >
-                    <i className="fa-solid fa-location-dot fs-3"></i>
-                  </div>
+            <div className="col-12 col-md-4">
+              <div
+                className="h-100 p-5 bg-white rounded-4 shadow-sm border border-1 text-center"
+                style={{ borderColor: "#e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-location-dot fs-3"></i>
                 </div>
-                <h4 className="fw-bold mb-3 h5" style={{ color: "#0f172a" }}>
+                <h3 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
                   Visit Us
-                </h4>
-                <p className="text-muted small mb-2">Corporate Headquarters</p>
-                <span className="fw-bold text-dark fs-6">
+                </h3>
+                <p className="fs-6 mb-3" style={{ color: "#475569" }}>
+                  Corporate Headquarters
+                </p>
+                <span className="fw-bold fs-5" style={{ color: "#2563eb" }}>
                   Brookfield, CT 06804
                 </span>
               </div>
@@ -200,31 +234,22 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* 3. Contact Form & Image Section */}
+      {/* Contact Form Section */}
       <section className="py-5 bg-white">
         <div className="container py-5">
-          <div className="row g-5 align-items-center">
+          <div className="row g-5 align-items-stretch">
             {/* Left Column: Form */}
-            <div className="col-12 col-lg-7" data-aos="fade-right">
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <i
-                  className="fa-solid fa-stethoscope"
-                  style={{ color: "#2563eb" }}
-                ></i>
-                <span
-                  className="fw-bold text-uppercase"
-                  style={{ color: "#2563eb", letterSpacing: "1px" }}
-                >
-                  Get In Touch
-                </span>
-              </div>
+            <div className="col-12 col-lg-7">
               <h2
                 className="display-5 fw-bold mb-4"
-                style={{ color: "#0f172a" }}
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
               >
                 Send Us A Message
               </h2>
-              <p className="text-muted mb-5" style={{ lineHeight: "1.7" }}>
+              <p
+                className="fs-5 mb-5"
+                style={{ color: "#475569", lineHeight: "1.7" }}
+              >
                 Whether you need a free revenue cycle audit, have questions
                 about our credentialing process, or want to explore outsourcing
                 options, fill out the form below.
@@ -232,7 +257,8 @@ export default function Contact() {
 
               {isSuccess && (
                 <div
-                  className="alert alert-success d-flex align-items-center rounded-3 mb-4"
+                  className="alert alert-success d-flex align-items-center rounded-3 mb-4 p-4 border-0"
+                  style={{ backgroundColor: "#dcfce7", color: "#166534" }}
                   role="alert"
                 >
                   <i className="fa-solid fa-circle-check fs-4 me-3"></i>
@@ -244,20 +270,23 @@ export default function Contact() {
                 </div>
               )}
 
-              <form
-                onSubmit={handleSubmit}
-                className="row g-4 bg-white border border-1 border-light shadow-sm rounded-4 p-4 p-md-5"
-              >
+              <form onSubmit={handleSubmit} className="row g-4 p-0">
                 <div className="col-md-6">
                   <label
                     htmlFor="name"
-                    className="form-label fw-bold text-dark small"
+                    className="form-label fw-bold small"
+                    style={{ color: "#0f172a" }}
                   >
                     Full Name *
                   </label>
                   <input
                     type="text"
-                    className="form-control form-control-lg bg-light border-0"
+                    className="form-control form-control-lg border-1"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      borderColor: "#e2e8f0",
+                      color: "#0f172a",
+                    }}
                     id="name"
                     name="name"
                     value={formData.name}
@@ -269,13 +298,19 @@ export default function Contact() {
                 <div className="col-md-6">
                   <label
                     htmlFor="email"
-                    className="form-label fw-bold text-dark small"
+                    className="form-label fw-bold small"
+                    style={{ color: "#0f172a" }}
                   >
                     Email Address *
                   </label>
                   <input
                     type="email"
-                    className="form-control form-control-lg bg-light border-0"
+                    className="form-control form-control-lg border-1"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      borderColor: "#e2e8f0",
+                      color: "#0f172a",
+                    }}
                     id="email"
                     name="email"
                     value={formData.email}
@@ -287,13 +322,19 @@ export default function Contact() {
                 <div className="col-md-6">
                   <label
                     htmlFor="phone"
-                    className="form-label fw-bold text-dark small"
+                    className="form-label fw-bold small"
+                    style={{ color: "#0f172a" }}
                   >
                     Phone Number
                   </label>
                   <input
                     type="tel"
-                    className="form-control form-control-lg bg-light border-0"
+                    className="form-control form-control-lg border-1"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      borderColor: "#e2e8f0",
+                      color: "#0f172a",
+                    }}
                     id="phone"
                     name="phone"
                     value={formData.phone}
@@ -304,12 +345,18 @@ export default function Contact() {
                 <div className="col-md-6">
                   <label
                     htmlFor="subject"
-                    className="form-label fw-bold text-dark small"
+                    className="form-label fw-bold small"
+                    style={{ color: "#0f172a" }}
                   >
                     Subject Inquiry *
                   </label>
                   <select
-                    className="form-select form-select-lg bg-light border-0"
+                    className="form-select form-select-lg border-1"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      borderColor: "#e2e8f0",
+                      color: "#0f172a",
+                    }}
                     id="subject"
                     name="subject"
                     value={formData.subject}
@@ -333,25 +380,34 @@ export default function Contact() {
                 <div className="col-12">
                   <label
                     htmlFor="message"
-                    className="form-label fw-bold text-dark small"
+                    className="form-label fw-bold small"
+                    style={{ color: "#0f172a" }}
                   >
                     Your Message
                   </label>
                   <textarea
-                    className="form-control bg-light border-0"
+                    className="form-control border-1"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      borderColor: "#e2e8f0",
+                      color: "#0f172a",
+                    }}
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={5}
+                    rows={6}
                     placeholder="How can we help maximize your revenue..."
                   ></textarea>
                 </div>
                 <div className="col-12 mt-4">
                   <button
                     type="submit"
-                    className="btn btn-lg w-100 text-white fw-bold py-3"
-                    style={{ backgroundColor: "#0f172a", borderRadius: "8px" }}
+                    className="btn btn-lg w-100 text-white py-3 rounded-pill fw-bold shadow-sm"
+                    style={{
+                      backgroundColor: "#2563eb",
+                      letterSpacing: "0.5px",
+                    }}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -360,7 +416,7 @@ export default function Contact() {
                           className="spinner-border spinner-border-sm me-2"
                           role="status"
                           aria-hidden="true"
-                        ></span>{" "}
+                        ></span>
                         Sending...
                       </>
                     ) : (
@@ -372,65 +428,92 @@ export default function Contact() {
             </div>
 
             {/* Right Column: Image */}
-            <div className="col-12 col-lg-5 text-center" data-aos="fade-left">
-              <div className="position-relative d-inline-block w-100 h-100">
-                {/* Decorative teal box behind the image */}
-                <div
-                  className="position-absolute rounded-4 h-100 w-100"
-                  style={{
-                    backgroundColor: "#2563eb",
-                    transform: "translate(15px, 15px)",
-                    zIndex: 0,
-                  }}
-                ></div>
-                <img
-                  src="/images/consultant.png"
-                  alt="Dental Office Support"
-                  className="img-fluid rounded-4 position-relative shadow-lg"
-                  style={{
-                    zIndex: 1,
-                    objectFit: "cover",
-                    width: "100%",
-                    maxHeight: "650px",
-                  }}
-                />
-              </div>
+            <div className="col-12 col-lg-5 text-center d-flex align-items-center">
+              <div
+                className="rounded-4 overflow-hidden w-100 shadow-lg"
+                style={{
+                  height: "100%",
+                  minHeight: "500px",
+                  background: "url('/images/consultant.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. CTA Section */}
-      <section className="py-5" style={{ backgroundColor: "#2563eb" }}>
-        <div
-          className="container py-5 text-center text-white"
-          data-aos="fade-up"
-        >
-          <h2 className="display-5 fw-bold mb-4">
-            You Practice Dentistry. We Track Down The Payments.
+      {/* Dynamic CTA Section */}
+      <section
+        className="py-5 position-relative overflow-hidden"
+        style={{ backgroundColor: "#212529" }}
+      >
+        <div className="container py-5 position-relative z-2 text-center text-white">
+          <div
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
+          >
+            <span className="fs-6 fw-medium text-white">Let's talk</span>
+          </div>
+          <h2
+            className="display-4 fw-bold mb-4"
+            style={{ letterSpacing: "-1px", color: "#ffffff" }}
+          >
+            Dental Billing Without The Hassle
           </h2>
           <p
-            className="lead mb-5 mx-auto fs-5"
-            style={{ maxWidth: "700px", opacity: 0.9, lineHeight: "1.8" }}
+            className="lead mx-auto mb-5 fw-light"
+            style={{ maxWidth: "650px", opacity: 0.9 }}
           >
-            Don't let denied claims and unpaid AR slow your practice down.
-            Partner with Dental Billing Team & Associates for a reliable,
-            seamless financial operation.
+            Don't let denied claims and unpaid AR slow your practice down. Let
+            our team of professionals optimize your revenue.
           </p>
-          <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+          <div className="d-flex justify-content-center gap-3">
             <Link
               href="/services"
-              className="btn btn-lg px-5 py-3 fw-bold"
+              className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
               style={{
-                backgroundColor: "#0f172a",
-                color: "white",
-                borderRadius: "8px",
+                backgroundColor: "#2563eb",
+                color: "#ffffff",
+                fontSize: "1.1rem",
+                border: "none",
               }}
             >
-              Learn More About Our Services
+              Explore Services
             </Link>
           </div>
         </div>
+
+        {/* Decorative Circles */}
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "600px",
+            height: "600px",
+            backgroundColor: "rgba(255,255,255,0.02)",
+            top: "-300px",
+            right: "-200px",
+            zIndex: 1,
+            border: "1px solid rgba(255,255,255,0.05)",
+          }}
+        ></div>
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "400px",
+            height: "400px",
+            backgroundColor: "#2563eb",
+            opacity: 0.25,
+            bottom: "-200px",
+            left: "-100px",
+            zIndex: 1,
+            filter: "blur(60px)",
+          }}
+        ></div>
       </section>
     </>
   );

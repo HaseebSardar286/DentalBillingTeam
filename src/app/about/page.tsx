@@ -1,138 +1,211 @@
+"use client";
+
 import Link from "next/link";
 import Counter from "@/components/Counter";
 
 export default function About() {
   return (
     <>
-      {/* 1. Page Hero Banner */}
+      {/* Modern SaaS Hero Section */}
       <section
-        className="position-relative py-5 d-flex flex-column align-items-center justify-content-center"
+        className="position-relative overflow-hidden d-flex flex-column justify-content-center"
         style={{
-          minHeight: "35vh",
           backgroundColor: "#0f172a",
-          overflow: "hidden",
+          minHeight: "40vh",
+          paddingTop: "120px",
+          paddingBottom: "80px",
         }}
       >
-        {/* Faint Background Image */}
         <div
-          className="position-absolute w-100 h-100 top-0 start-0"
-          style={{
-            backgroundImage: "url('/images/consultant.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.1,
-            zIndex: 0,
-          }}
-        ></div>
-
-        <div
-          className="container position-relative text-center text-white"
-          style={{ zIndex: 1 }}
+          className="container position-relative z-2 text-center text-white"
+          style={{ maxWidth: "900px" }}
         >
-          <h1 className="display-4 fw-bold mb-3">About Us</h1>
-          <p className="lead fw-light mx-auto" style={{ maxWidth: "700px" }}>
+          <div
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
+          >
+            <span
+              className="badge rounded-pill fw-bold"
+              style={{ backgroundColor: "#2563eb", color: "#fff" }}
+            >
+              Company Story
+            </span>
+            <span className="fs-6 fw-medium text-white">Who We Are</span>
+          </div>
+
+          <h1
+            className="display-3 fw-bold mb-4 text-white"
+            style={{ letterSpacing: "-1px", lineHeight: "1.1" }}
+          >
+            We handle billing, <br />
+            <span style={{ color: "#d4af37" }}>you focus on dentistry.</span>
+          </h1>
+          <p
+            className="lead mx-auto mb-5"
+            style={{
+              maxWidth: "800px",
+              fontSize: "1.25rem",
+              lineHeight: "1.8",
+              color: "#e2e8f0",
+            }}
+          >
             We are a team of dedicated dental billing professionals committed to
             maximizing your practice's revenue and reducing administrative
             burdens.
           </p>
         </div>
+
+        {/* Decorative background element background */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden pointer-events-none"
+          style={{ zIndex: 1, opacity: 0.15 }}
+        >
+          <div
+            className="position-absolute rounded-circle bg-white"
+            style={{
+              width: "500px",
+              height: "500px",
+              top: "-150px",
+              right: "-100px",
+              filter: "blur(60px)",
+            }}
+          ></div>
+          <div
+            className="position-absolute rounded-circle"
+            style={{
+              width: "400px",
+              height: "400px",
+              bottom: "-100px",
+              left: "-100px",
+              filter: "blur(80px)",
+              backgroundColor: "#2563eb",
+            }}
+          ></div>
+        </div>
       </section>
 
-      {/* 2. About Us & Mission */}
-      <section className="py-5 overflow-hidden">
-        <div className="container py-5">
-          <div className="row align-items-center justify-content-between gy-5">
-            <div className="col-12 col-lg-5 position-relative text-center text-lg-start">
-              {/* Light Blue Background Shape */}
-              <div
-                className="position-absolute rounded-circle"
-                style={{
-                  backgroundColor: "#f8fafc",
-                  width: "140%",
-                  paddingBottom: "140%",
-                  top: "0%",
-                  left: "-20%",
-                  zIndex: 0,
-                }}
-              ></div>
-
-              <img
-                src="/images/billing.jpg"
-                alt="About Us"
-                className="img-fluid position-relative shadow"
-                style={{ zIndex: 1, borderRadius: "5px" }}
-              />
-            </div>
-            <div className="col-12 col-lg-6 text-start z-1">
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <i
-                  className="fa-solid fa-stethoscope"
-                  style={{ color: "#2563eb" }}
-                ></i>
-                <span
-                  className="fw-bold text-uppercase"
-                  style={{ color: "#2563eb", letterSpacing: "1px" }}
-                >
-                  Who We Are
-                </span>
-              </div>
+      {/* About Us & Mission - Bento Layout */}
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+        <div className="container py-5 mt-4">
+          <div className="row g-5 align-items-center">
+            {/* Left Content */}
+            <div className="col-lg-6">
               <h2
-                className="display-6 fw-bold mb-4"
-                style={{ lineHeight: "1.3", color: "#0f172a" }}
+                className="display-5 fw-bold mb-4"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
               >
-                We Handle Billing, You Focus on Dentistry
+                Our mission is to empower dental practices nationwide.
               </h2>
               <p
-                className="text-muted mb-4 fs-6 pb-2"
-                style={{ lineHeight: "1.8" }}
+                className="fs-5 mb-4"
+                style={{ color: "#334155", lineHeight: "1.8" }}
               >
-                Our team delivers reliable dental billing services in USA,
+                Our team delivers reliable dental billing services in the USA,
                 allowing dentists and staff to dedicate more time to patients.
-                At the same time, we manage claims, documentation and insurance
-                coordination behind the scenes. With structured systems and
-                proactive follow-ups, we help eliminate delays and improve
-                overall collections.
+                At the same time, we manage claims, documentation, and insurance
+                coordination behind the scenes.
+              </p>
+              <p
+                className="fs-5 mb-5"
+                style={{ color: "#334155", lineHeight: "1.8" }}
+              >
+                With structured systems and proactive follow-ups, we help
+                eliminate delays and improve overall collections.
               </p>
 
-              <div
-                className="card border-0 rounded-4 p-4"
-                style={{ backgroundColor: "#f8fafc" }}
-              >
-                <div className="row g-4">
-                  <div className="col-12 col-md-6">
-                    <h5
-                      className="fw-bold mb-3 fs-5"
-                      style={{ color: "#0f172a" }}
-                    >
-                      Our Mission
-                    </h5>
-                    <p
-                      className="text-muted mb-0 small"
-                      style={{ lineHeight: "1.7" }}
-                    >
-                      Our mission is to provide accurate and transparent billing
-                      solutions that maximize reimbursements, reduce denials and
-                      strengthen long-term financial stability for dental
-                      practices.
-                    </p>
+              <div className="d-flex gap-4">
+                {/* Stats Minimal */}
+                <div>
+                  <h3
+                    className="display-6 fw-bold mb-1"
+                    style={{ color: "#e2e8f0" }}
+                  >
+                    <Counter end={40} suffix="+" />
+                  </h3>
+                  <p
+                    className="fw-medium text-uppercase small"
+                    style={{ color: "#475569", letterSpacing: "1px" }}
+                  >
+                    National Awards
+                  </p>
+                </div>
+                <div>
+                  <h3
+                    className="display-6 fw-bold mb-1"
+                    style={{ color: "#2563eb" }}
+                  >
+                    <Counter end={220} suffix="+" />
+                  </h3>
+                  <p
+                    className="fw-medium text-uppercase small"
+                    style={{ color: "#475569", letterSpacing: "1px" }}
+                  >
+                    Expert Doctors
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Bento Boxes */}
+            <div className="col-lg-6">
+              <div className="d-flex flex-column gap-4">
+                <div
+                  className="p-5 bg-white rounded-4 shadow-sm border border-1"
+                  style={{ borderColor: "#e2e8f0" }}
+                >
+                  <div
+                    className="rounded-circle d-flex align-items-center justify-content-center mb-4"
+                    style={{
+                      width: "56px",
+                      height: "56px",
+                      backgroundColor: "#dbeafe",
+                      color: "#2563eb",
+                    }}
+                  >
+                    <i className="fa-solid fa-bullseye fs-4"></i>
                   </div>
-                  <div className="col-12 col-md-6">
-                    <h5
-                      className="fw-bold mb-3 fs-5"
-                      style={{ color: "#0f172a" }}
-                    >
-                      Our Vision
-                    </h5>
-                    <p
-                      className="text-muted mb-0 small"
-                      style={{ lineHeight: "1.7" }}
-                    >
-                      Our vision is to become one of the most dependable dental
-                      insurance billing companies, recognized for innovation,
-                      accountability and measurable revenue growth for practices
-                      nationwide.
-                    </p>
+                  <h3 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
+                    Our Mission
+                  </h3>
+                  <p
+                    className="mb-0 fs-6"
+                    style={{ color: "#475569", lineHeight: "1.7" }}
+                  >
+                    To provide accurate and transparent billing solutions that
+                    maximize reimbursements, reduce denials, and strengthen
+                    long-term financial stability for dental practices.
+                  </p>
+                </div>
+
+                <div
+                  className="p-5 bg-white rounded-4 shadow-sm border border-1"
+                  style={{ borderColor: "#e2e8f0" }}
+                >
+                  <div
+                    className="rounded-circle d-flex align-items-center justify-content-center mb-4"
+                    style={{
+                      width: "56px",
+                      height: "56px",
+                      backgroundColor: "#f1f5f9",
+                      color: "#2563eb",
+                    }}
+                  >
+                    <i className="fa-solid fa-eye fs-4"></i>
                   </div>
+                  <h3 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
+                    Our Vision
+                  </h3>
+                  <p
+                    className="mb-0 fs-6"
+                    style={{ color: "#475569", lineHeight: "1.7" }}
+                  >
+                    To become the most dependable dental insurance billing
+                    partner, recognized for innovation, accountability, and
+                    measurable revenue growth for practices nationwide.
+                  </p>
                 </div>
               </div>
             </div>
@@ -140,98 +213,23 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. Statistics Section */}
-      <section
-        className="py-5"
-        style={{
-          backgroundColor: "#f8f9fa",
-          borderTop: "1px solid #eaeaea",
-          borderBottom: "1px solid #eaeaea",
-        }}
-        data-aos="fade-up"
-      >
-        <div className="container py-4">
-          <div className="row text-center g-4">
-            <div className="col-6 col-md-3">
-              <h2
-                className="display-4 fw-bold mb-2"
-                style={{ color: "#0f172a" }}
-              >
-                <Counter end={40} suffix="+" />
-              </h2>
-              <p
-                className="fw-semibold text-muted text-uppercase mb-0"
-                style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-              >
-                National Awards
-              </p>
-            </div>
-            <div className="col-6 col-md-3">
-              <h2
-                className="display-4 fw-bold mb-2"
-                style={{ color: "#0f172a" }}
-              >
-                <Counter end={220} suffix="+" />
-              </h2>
-              <p
-                className="fw-semibold text-muted text-uppercase mb-0"
-                style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-              >
-                Expert Doctors
-              </p>
-            </div>
-            <div className="col-6 col-md-3">
-              <h2
-                className="display-4 fw-bold mb-2"
-                style={{ color: "#0f172a" }}
-              >
-                <Counter end={5} suffix="k+" />
-              </h2>
-              <p
-                className="fw-semibold text-muted text-uppercase mb-0"
-                style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-              >
-                Satisfied Patients
-              </p>
-            </div>
-            <div className="col-6 col-md-3">
-              <h2
-                className="display-4 fw-bold mb-2"
-                style={{ color: "#0f172a" }}
-              >
-                <Counter end={8} suffix="k+" />
-              </h2>
-              <p
-                className="fw-semibold text-muted text-uppercase mb-0"
-                style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-              >
-                Operation Success
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Our Core Values Section */}
+      {/* Core Values Section */}
       <section className="py-5 bg-white">
         <div className="container py-5 mt-4">
-          <div className="text-center mb-5 pb-3">
-            <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
-              <i
-                className="fa-solid fa-stethoscope"
-                style={{ color: "#2563eb" }}
-              ></i>
-              <span
-                className="fw-bold text-uppercase"
-                style={{ color: "#2563eb", letterSpacing: "1px" }}
+          <div className="row mb-5 text-center justify-content-center">
+            <div className="col-lg-8">
+              <h2
+                className="display-5 fw-bold mb-3"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
               >
-                Core Values
-              </span>
+                What Drives Us Forward
+              </h2>
+              <p className="fs-5 mb-0" style={{ color: "#475569" }}>
+                The core principles that guide our work every single day.
+              </p>
             </div>
-            <h2 className="display-5 fw-bold" style={{ color: "#0f172a" }}>
-              What Drives Us Forward
-            </h2>
           </div>
+
           <div className="row g-4 justify-content-center">
             {[
               {
@@ -258,7 +256,10 @@ export default function About() {
               <div key={idx} className="col-12 col-md-6 col-lg-3">
                 <div
                   className="card h-100 border-0 shadow-sm p-4 text-center rounded-4"
-                  style={{ backgroundColor: "#f8fafc" }}
+                  style={{
+                    backgroundColor: "#f8fafc",
+                    border: "1px solid #e2e8f0",
+                  }}
                 >
                   <div className="d-flex justify-content-center mb-4 mt-2">
                     <div
@@ -276,8 +277,12 @@ export default function About() {
                     {value.title}
                   </h4>
                   <p
-                    className="text-muted small mb-0"
-                    style={{ lineHeight: "1.7" }}
+                    className="small mb-0"
+                    style={{
+                      color: "#475569",
+                      lineHeight: "1.7",
+                      fontSize: "1rem",
+                    }}
                   >
                     {value.text}
                   </p>
@@ -288,25 +293,22 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. Meet The Leadership */}
+      {/* Leadership Section */}
       <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
         <div className="container py-5">
-          <div className="text-center mb-5 pb-3">
-            <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
-              <i
-                className="fa-solid fa-stethoscope"
-                style={{ color: "#2563eb" }}
-              ></i>
-              <span
-                className="fw-bold text-uppercase"
-                style={{ color: "#2563eb", letterSpacing: "1px" }}
+          <div className="row mb-5 text-center justify-content-center">
+            <div className="col-lg-8">
+              <h2
+                className="display-5 fw-bold mb-3"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
               >
-                Our Team
-              </span>
+                The Experts Behind Your Success
+              </h2>
+              <p className="fs-5 mb-0" style={{ color: "#475569" }}>
+                Meet the leadership team dedicated to optimizing your revenue
+                cycle.
+              </p>
             </div>
-            <h2 className="display-5 fw-bold" style={{ color: "#0f172a" }}>
-              The Experts Behind Your Success
-            </h2>
           </div>
 
           <div className="row g-4 justify-content-center">
@@ -314,7 +316,7 @@ export default function About() {
               {
                 name: "Farha Ahmed",
                 role: "Project Manager",
-                desc: "Oversees all billing operations and ensures strategic goals are met for every practice.",
+                desc: "Oversees all billing operations and ensures strategic goals are met for every practice securely.",
               },
               {
                 name: "Arthur Sajid HR",
@@ -328,7 +330,10 @@ export default function About() {
               },
             ].map((member, idx) => (
               <div key={idx} className="col-12 col-md-4 text-center">
-                <div className="card border-0 rounded-4 shadow-sm h-100 bg-white">
+                <div
+                  className="card border-0 rounded-4 shadow-sm h-100 bg-white"
+                  style={{ border: "1px solid #e2e8f0" }}
+                >
                   <div className="card-body p-5">
                     <div
                       className="rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center"
@@ -343,7 +348,12 @@ export default function About() {
                         style={{ fontSize: "2.5rem", color: "#2563eb" }}
                       ></i>
                     </div>
-                    <h5 className="fw-bold text-dark mb-1 h4">{member.name}</h5>
+                    <h5
+                      className="fw-bold mb-1 h4"
+                      style={{ color: "#0f172a" }}
+                    >
+                      {member.name}
+                    </h5>
                     <p
                       className="fw-semibold mb-4"
                       style={{ color: "#2563eb" }}
@@ -351,8 +361,12 @@ export default function About() {
                       {member.role}
                     </p>
                     <p
-                      className="text-muted small px-lg-3 mb-0"
-                      style={{ lineHeight: "1.8" }}
+                      className="px-lg-3 mb-0"
+                      style={{
+                        color: "#475569",
+                        lineHeight: "1.8",
+                        fontSize: "1.05rem",
+                      }}
                     >
                       {member.desc}
                     </p>
@@ -364,15 +378,30 @@ export default function About() {
         </div>
       </section>
 
-      {/* 6. CTA Section */}
-      <section className="py-5" style={{ backgroundColor: "#0f172a" }}>
-        <div className="container py-5 text-center text-white">
-          <h2 className="display-5 fw-bold mb-4">
+      {/* Dynamic CTA Section */}
+      <section
+        className="py-5 position-relative overflow-hidden"
+        style={{ backgroundColor: "#212529" }}
+      >
+        <div className="container py-5 position-relative z-2 text-center text-white">
+          <div
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
+          >
+            <span className="fs-6 fw-medium text-white">Get Started</span>
+          </div>
+          <h2
+            className="display-4 fw-bold mb-4"
+            style={{ letterSpacing: "-1px", color: "#ffffff" }}
+          >
             Ready to Grow Your Practice?
           </h2>
           <p
-            className="lead mb-5 mx-auto fs-5"
-            style={{ maxWidth: "600px", opacity: 0.9, lineHeight: "1.8" }}
+            className="lead mx-auto mb-5 fw-light"
+            style={{ maxWidth: "650px", opacity: 0.9 }}
           >
             Join the hundreds of dental practices nationwide that trust us to
             handle their revenue cycle. Let's maximize your collections
@@ -381,27 +410,57 @@ export default function About() {
           <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
             <Link
               href="/"
-              className="btn btn-lg px-5 py-3 fw-bold"
+              className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
               style={{
                 backgroundColor: "#2563eb",
-                color: "white",
-                borderRadius: "8px",
+                color: "#ffffff",
+                fontSize: "1.1rem",
+                border: "none",
               }}
             >
               Get a Free Audit
             </Link>
             <Link
               href="/contact"
-              className="btn btn-outline-light btn-lg px-5 py-3 fw-bold"
+              className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
               style={{
-                border: "2px solid rgba(255,255,255,0.7)",
-                borderRadius: "8px",
+                backgroundColor: "transparent",
+                color: "#ffffff",
+                fontSize: "1.1rem",
+                border: "2px solid rgba(255,255,255,0.4)",
               }}
             >
               Contact Us
             </Link>
           </div>
         </div>
+
+        {/* Decorative Circles */}
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "600px",
+            height: "600px",
+            backgroundColor: "rgba(255,255,255,0.02)",
+            top: "-300px",
+            right: "-200px",
+            zIndex: 1,
+            border: "1px solid rgba(255,255,255,0.05)",
+          }}
+        ></div>
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "400px",
+            height: "400px",
+            backgroundColor: "#2563eb",
+            opacity: 0.25,
+            bottom: "-200px",
+            left: "-100px",
+            zIndex: 1,
+            filter: "blur(60px)",
+          }}
+        ></div>
       </section>
     </>
   );

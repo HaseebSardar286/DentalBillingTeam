@@ -68,7 +68,6 @@ export default function Header() {
                 <Link
                   href="/"
                   className={`nav-link fw-medium ${pathname === "/" ? "active" : "text-dark"}`}
-                  style={pathname === "/" ? { color: "#2563eb" } : {}}
                 >
                   Home
                 </Link>
@@ -77,25 +76,64 @@ export default function Header() {
                 <Link
                   href="/about"
                   className={`nav-link fw-medium ${pathname === "/about" ? "active" : "text-dark"}`}
-                  style={pathname === "/about" ? { color: "#2563eb" } : {}}
                 >
                   About
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  href="/services"
-                  className={`nav-link fw-medium ${pathname === "/services" ? "active" : "text-dark"}`}
-                  style={pathname === "/services" ? { color: "#2563eb" } : {}}
+              <li className="nav-item dropdown">
+                <a
+                  className={`nav-link dropdown-toggle fw-medium ${pathname.startsWith("/services") ? "active" : "text-dark"}`}
+                  href="#"
+                  id="servicesDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
                   Services
-                </Link>
+                </a>
+                <ul className="dropdown-menu border-0 shadow mt-2 rounded-3" aria-labelledby="servicesDropdown">
+<li>
+                    <Link href="/services" className="dropdown-item py-2 fw-medium">
+                      All Services
+                    </Link>
+                  </li>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <Link href="/services/dental-insurance-billing" className="dropdown-item py-2">
+                       Dental Insurance Billing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/dental-claims-submission" className="dropdown-item py-2">
+                       Dental Claims Submission
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/insurance-payment-posting" className="dropdown-item py-2">
+                       Insurance Payment Posting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/accounts-receivable-management" className="dropdown-item py-2">
+                       Accounts Receivable Management
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/dental-insurance-verification" className="dropdown-item py-2">
+                       Dental Insurance Verification
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/dental-practice-credentialing" className="dropdown-item py-2">
+                       Dental Practice Credentialing
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item">
                 <Link
                   href="/contact"
                   className={`nav-link fw-medium ${pathname === "/contact" ? "active" : "text-dark"}`}
-                  style={pathname === "/contact" ? { color: "#2563eb" } : {}}
                 >
                   Contact
                 </Link>
@@ -104,8 +142,7 @@ export default function Header() {
                 {/* CTA Button */}
                 <Link
                   href="/contact"
-                  className="btn px-4 py-2 shadow-sm d-block d-lg-inline-block rounded-3 fw-bold"
-                  style={{ backgroundColor: "#2563eb", color: "white" }}
+                  className="btn px-4 py-2 shadow-sm d-block d-lg-inline-block rounded-3 fw-bold btn-primary-custom"
                 >
                   Book Appointment
                 </Link>

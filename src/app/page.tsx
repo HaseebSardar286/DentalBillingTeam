@@ -1,956 +1,685 @@
-import Counter from "@/components/Counter";
+"use client";
+
 import Link from "next/link";
+import Counter from "@/components/Counter";
 
 export default function Home() {
-  console.log("What type of component is this?");
   return (
     <>
-      {/* Hero Section */}
-      <section>
-        <div className="container py-5">
-          <div className="row align-items-center justify-content-between">
+      {/* SaaS Hero Section - Modern Full Height */}
+      <section
+        className="position-relative overflow-hidden d-flex flex-column justify-content-center"
+        style={{
+          backgroundColor: "#0f172a",
+          minHeight: "100vh",
+          paddingTop: "120px",
+          paddingBottom: "80px",
+        }}
+      >
+        <div className="container position-relative z-2">
+          <div className="row align-items-center">
             <div
-              className="col-12 col-lg-6 text-center text-lg-start"
+              className="col-12 col-lg-7 text-center text-lg-start mb-5 mb-lg-0"
               data-aos="fade-right"
             >
-              <h1 className="display-5 fw-bold mb-4">
-                Dental Billing & Insurance Support Servates
+              <div
+                className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+              >
+                <span
+                  className="badge rounded-pill fw-bold"
+                  style={{ backgroundColor: "#2563eb", color: "#fff" }}
+                >
+                  Dental Billing Team
+                </span>
+                <span className="fs-6 fw-medium text-white">
+                  Streamline Your Revenue
+                </span>
+              </div>
+
+              <h1
+                className="display-3 fw-bold mb-4 text-white"
+                style={{ letterSpacing: "-1px", lineHeight: "1.15" }}
+              >
+                Stop chasing claims. <br className="d-none d-md-block" />
+                Start increasing your{" "}
+                <span style={{ color: "#d4af37" }}>clinic's revenue.</span>
               </h1>
-              <p className="lead mb-4">
-                We provide comprehensive Dental billing services designed to
-                help dental practices streamline their revenue cycle, improve
-                cash flow and focus more on patient care. Our team manages every
-                step of the billing process with precision, from accurate
-                patient data entry and insurance verification to claim
-                submission, payment posting and follow-up on outstanding
-                accounts.
+
+              <p
+                className="lead mb-5 fw-light"
+                style={{
+                  maxWidth: "600px",
+                  fontSize: "1.25rem",
+                  lineHeight: "1.8",
+                  color: "#e2e8f0",
+                }}
+              >
+                We handle the end-to-end medical and dental billing process,
+                eliminating administrative burdens so your team can focus
+                entirely on patient care. Reduce denials and maximize your cash
+                flow today.
               </p>
 
-              <p className="lead mb-5">
-                As a trusted Dental Billing Company, we ensure accuracy,
-                compliance and faster reimbursements so your practice can
-                operate efficiently without administrative stress.
-              </p>
               <div className="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                <button
-                  className="btn btn-light btn-lg px-4 py-3"
-                  style={{ backgroundColor: "#0d9488", color: "white" }}
+                <Link
+                  href="/contact"
+                  className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
+                  style={{
+                    backgroundColor: "#2563eb",
+                    color: "#ffffff",
+                    fontSize: "1.1rem",
+                    border: "none",
+                  }}
                 >
-                  Get Audit
-                </button>
-                <button
-                  className="btn btn-outline-light btn-lg px-4 py-3"
-                  style={{ backgroundColor: "#1c3b63", color: "white" }}
+                  Get a Free Audit
+                </Link>
+                <Link
+                  href="/services"
+                  className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm"
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#ffffff",
+                    fontSize: "1.1rem",
+                    border: "2px solid rgba(255,255,255,0.4)",
+                  }}
                 >
-                  Book a Consultation
-                </button>
+                  Explore Services
+                </Link>
               </div>
             </div>
-            <div className="col-12 col-lg-5 position-relative text-center mt-5 mt-lg-0 px-lg-4">
-              {/* Custom Deep Blue Background Shape */}
-              <div
-                className="position-absolute bottom-0 start-0 w-100"
-                style={{
-                  backgroundColor: "#1c3b63" /* Exact shade from reference */,
-                  borderTopLeftRadius: "300px",
-                  borderTopRightRadius: "10px",
-                  borderBottomRightRadius: "10px",
-                  borderBottomLeftRadius: "10px",
-                  height: "80%",
-                  zIndex: 0,
-                }}
-              ></div>
 
-              {/* Foreground Cutout Image */}
-              <div className="position-relative" style={{ zIndex: 1 }}>
+            {/* Right Side Visual Graphic */}
+            <div
+              className="col-12 col-lg-5 position-relative text-center px-lg-4"
+              data-aos="fade-left"
+            >
+              <div
+                className="position-relative z-2 rounded-4 overflow-hidden shadow-lg border border-3 border-dark"
+                style={{ transform: "rotate(2deg)" }}
+              >
                 <img
                   src="/images/dental_doctor.png"
                   alt="Dental Professional"
-                  className="img-fluid pe-3"
-                  style={{ maxHeight: "600px" }}
+                  className="img-fluid bg-white"
+                  style={{ maxHeight: "600px", objectFit: "cover" }}
                 />
               </div>
 
-              {/* Floating Stethoscope Badge */}
+              {/* 3D Floating Element */}
               <div
-                className="position-absolute bg-white rounded-circle shadow d-flex align-items-center justify-content-center border"
+                className="position-absolute bg-white rounded-4 shadow-lg p-3 d-flex align-items-center gap-3"
                 style={{
-                  width: "90px",
-                  height: "90px",
-                  bottom: "0px",
-                  left: "-35px",
-                  zIndex: 2,
+                  bottom: "40px",
+                  left: "-30px",
+                  zIndex: 3,
+                  border: "1px solid #e2e8f0",
+                  animation: "float 6s ease-in-out infinite",
                 }}
               >
-                <i
-                  className="fa-solid fa-stethoscope fs-2"
-                  style={{ color: "#1c3b63" }}
-                ></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section className="py-5 overflow-hidden">
-        <div className="container py-5">
-          <div className="row align-items-center justify-content-between gy-5">
-            <div
-              className="col-12 col-lg-5 position-relative text-center text-lg-start"
-              data-aos="fade-up"
-            >
-              {/* Light Blue Background Shape */}
-              <div
-                className="position-absolute rounded-circle"
-                style={{
-                  backgroundColor: "#f4f8fb",
-                  width: "140%",
-                  paddingBottom: "140%",
-                  top: "0%",
-                  left: "-20%",
-                  zIndex: 0,
-                }}
-              ></div>
-
-              <img
-                src="/images/billing.jpg"
-                alt="About Us"
-                className="img-fluid position-relative shadow"
-                style={{ zIndex: 1, borderRadius: "5px" }}
-              />
-            </div>
-            <div
-              className="col-12 col-lg-6 text-start"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <i
-                  className="fa-solid fa-stethoscope"
-                  style={{ color: "#13a195" }}
-                ></i>
-                <span
-                  className="fw-bold text-uppercase"
-                  style={{ color: "#13a195", letterSpacing: "1px" }}
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center bg-success bg-opacity-10"
+                  style={{ width: "48px", height: "48px" }}
                 >
-                  About Us
-                </span>
-              </div>
-              <h2
-                className="display-6 fw-bold mb-4"
-                style={{ lineHeight: "1.3" }}
-              >
-                We Handle Billing, You Focus on Dentistry
-              </h2>
-              <p
-                className="text-muted mb-4 fs-6 pb-2"
-                style={{ lineHeight: "1.8" }}
-              >
-                Our team delivers reliable dental billing services in USA,
-                allowing dentists and staff to dedicate more time to patients.
-                At the same time, we manage claims, documentation and insurance
-                coordination behind the scenes. With structured systems and
-                proactive follow-ups, we help eliminate delays and improve
-                overall collections.
-              </p>
-
-              <div
-                className="card border-0 rounded-4 p-4 mb-5"
-                style={{ backgroundColor: "#f4f8fb" }}
-              >
-                <div className="row g-4">
-                  <div className="col-12 col-md-6">
-                    <h5 className="fw-bold mb-3 fs-5">Our Mission</h5>
-                    <p
-                      className="text-muted mb-0 small"
-                      style={{ lineHeight: "1.7" }}
-                    >
-                      Our mission is to provide accurate and transparent billing
-                      solutions that maximize reimbursements, reduce denials and
-                      strengthen long-term financial stability for dental
-                      practices.
-                    </p>
-                  </div>
-                  <div className="col-12 col-md-6">
-                    <h5 className="fw-bold mb-3 fs-5">Our Vision</h5>
-                    <p
-                      className="text-muted mb-0 small"
-                      style={{ lineHeight: "1.7" }}
-                    >
-                      Our vision is to become one of the most dependable dental
-                      insurance billing companies, recognized for innovation,
-                      accountability and measurable revenue growth for practices
-                      nationwide.
-                    </p>
-                  </div>
+                  <i className="fa-solid fa-arrow-trend-up text-success fs-5"></i>
+                </div>
+                <div className="text-start">
+                  <p className="mb-0 text-success fw-bold">+ 34% Increase</p>
+                  <p className="mb-0 text-muted small fw-medium">
+                    Average Collections
+                  </p>
                 </div>
               </div>
 
-              <Link
-                href="/about"
-                className="btn px-5 py-3 text-white rounded-3 shadow-sm"
-                style={{ backgroundColor: "#13a195" }}
-              >
-                About More
-              </Link>
+              {/* Ambient Blurs */}
+              <div
+                className="position-absolute rounded-circle"
+                style={{
+                  width: "400px",
+                  height: "400px",
+                  bottom: "-50px",
+                  right: "-50px",
+                  filter: "blur(80px)",
+                  backgroundColor: "#2563eb",
+                  zIndex: 0,
+                  opacity: 0.4,
+                }}
+              ></div>
             </div>
           </div>
         </div>
+
+        {/* Global Background Element */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden pointer-events-none"
+          style={{ zIndex: 1, opacity: 0.15 }}
+        >
+          <div
+            className="position-absolute rounded-circle bg-white"
+            style={{
+              width: "600px",
+              height: "600px",
+              top: "-200px",
+              left: "-200px",
+              filter: "blur(90px)",
+            }}
+          ></div>
+        </div>
       </section>
 
-      {/* Statistics Section */}
-      <section className="py-5 bg-white" data-aos="fade-up">
-        <div className="container py-4">
-          <div className="row text-center g-4">
-            <div className="col-6 col-md-3">
-              <h2 className="display-5 fw-bold text-dark mb-2">
+      {/* Trusted By / Stats Bar */}
+      <section
+        className="py-4 border-bottom"
+        style={{ backgroundColor: "#ffffff", borderColor: "#f1f5f9" }}
+      >
+        <div className="container">
+          <div className="row text-center justify-content-center align-items-center g-4">
+            <div className="col-12 col-md-3 border-end">
+              <h3
+                className="display-6 fw-bold mb-1"
+                style={{ color: "#0f172a" }}
+              >
                 <Counter end={40} suffix="+" />
-              </h2>
-              <p className="fw-semibold mb-0" style={{ color: "#1c3b63" }}>
+              </h3>
+              <p
+                className="fw-medium text-uppercase small"
+                style={{ color: "#64748b", letterSpacing: "1px" }}
+              >
                 National Awards
               </p>
             </div>
-            <div className="col-6 col-md-3">
-              <h2 className="display-5 fw-bold text-dark mb-2">
+            <div className="col-12 col-md-3 border-end">
+              <h3
+                className="display-6 fw-bold mb-1"
+                style={{ color: "#0f172a" }}
+              >
                 <Counter end={220} suffix="+" />
-              </h2>
-              <p className="fw-semibold mb-0" style={{ color: "#1c3b63" }}>
+              </h3>
+              <p
+                className="fw-medium text-uppercase small"
+                style={{ color: "#64748b", letterSpacing: "1px" }}
+              >
                 Expert Doctors
               </p>
             </div>
-            <div className="col-6 col-md-3">
-              <h2 className="display-5 fw-bold text-dark mb-2">
+            <div className="col-12 col-md-3 border-end">
+              <h3
+                className="display-6 fw-bold mb-1"
+                style={{ color: "#0f172a" }}
+              >
                 <Counter end={5} suffix="k+" />
-              </h2>
-              <p className="fw-semibold mb-0" style={{ color: "#1c3b63" }}>
+              </h3>
+              <p
+                className="fw-medium text-uppercase small"
+                style={{ color: "#64748b", letterSpacing: "1px" }}
+              >
                 Satisfied Patients
               </p>
             </div>
-            <div className="col-6 col-md-3">
-              <h2 className="display-5 fw-bold text-dark mb-2">
+            <div className="col-12 col-md-3">
+              <h3
+                className="display-6 fw-bold mb-1"
+                style={{ color: "#0f172a" }}
+              >
                 <Counter end={8} suffix="k+" />
-              </h2>
-              <p className="fw-semibold mb-0" style={{ color: "#1c3b63" }}>
-                Oparation Success
+              </h3>
+              <p
+                className="fw-medium text-uppercase small"
+                style={{ color: "#64748b", letterSpacing: "1px" }}
+              >
+                Clean Claims
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Services Section */}
-      <section className="py-5" style={{ backgroundColor: "#f4f8fb" }}>
+      {/* How Our System Works - Bento Box Layout */}
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
         <div className="container py-5">
-          <div className="text-center mb-5" data-aos="fade-up">
-            <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
-              <i
-                className="fa-solid fa-stethoscope"
-                style={{ color: "#13a195" }}
-              ></i>
-              <span
-                className="fw-bold text-uppercase"
-                style={{ color: "#1c3b63", letterSpacing: "1px" }}
+          <div className="row mb-5 text-center justify-content-center">
+            <div className="col-lg-8">
+              <p
+                className="fw-bold text-uppercase mb-2"
+                style={{ color: "#2563eb", letterSpacing: "1px" }}
               >
-                Services
-              </span>
+                The Process
+              </p>
+              <h2
+                className="display-5 fw-bold mb-3"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+              >
+                Built for Dental Success
+              </h2>
+              <p className="fs-5 mb-0" style={{ color: "#475569" }}>
+                We eliminate the friction between offering care and getting
+                paid.
+              </p>
             </div>
-            <h2 className="display-4 fw-bold text-dark">Our Services</h2>
+          </div>
+
+          <div className="row g-4 justify-content-center">
+            <div className="col-12 col-md-6 col-lg-4">
+              <div
+                className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
+                style={{ border: "1px solid #e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mb-4"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-file-invoice-dollar fs-3"></i>
+                </div>
+                <h4 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
+                  01. Verification
+                </h4>
+                <p
+                  className="mb-0"
+                  style={{
+                    color: "#475569",
+                    lineHeight: "1.7",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  Real-time insurance breakdown to prevent denials and ensure
+                  patients are fully covered before the drill turns on.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4">
+              <div
+                className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
+                style={{ border: "1px solid #e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mb-4"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-paper-plane fs-3"></i>
+                </div>
+                <h4 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
+                  02. Submission
+                </h4>
+                <p
+                  className="mb-0"
+                  style={{
+                    color: "#475569",
+                    lineHeight: "1.7",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  Clean claims submitted within 24 hours. We handle
+                  cross-coding, attachments, and complex narratives flawlessly.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-4">
+              <div
+                className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
+                style={{ border: "1px solid #e2e8f0" }}
+              >
+                <div
+                  className="rounded-circle d-flex align-items-center justify-content-center mb-4"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    backgroundColor: "#dbeafe",
+                    color: "#2563eb",
+                  }}
+                >
+                  <i className="fa-solid fa-money-bill-transfer fs-3"></i>
+                </div>
+                <h4 className="fw-bold mb-3 h4" style={{ color: "#0f172a" }}>
+                  03. Revenue Recovery
+                </h4>
+                <p
+                  className="mb-0"
+                  style={{
+                    color: "#475569",
+                    lineHeight: "1.7",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  Aggressive follow-ups on aging AR and immediate denial
+                  appeals. Your cashflow stays consistent and predictable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Services */}
+      <section className="py-5 bg-white">
+        <div className="container py-5">
+          <div className="row align-items-center mb-5">
+            <div className="col-12 col-md-8 text-start">
+              <p
+                className="fw-bold text-uppercase mb-2"
+                style={{ color: "#2563eb", letterSpacing: "1px" }}
+              >
+                Core Solutions
+              </p>
+              <h2
+                className="display-5 fw-bold mb-3"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+              >
+                Outsource the heavy lifting.
+              </h2>
+            </div>
+            <div className="col-12 col-md-4 text-md-end mt-4 mt-md-0">
+              <Link
+                href="/services"
+                className="btn btn-lg rounded-pill fw-bold shadow-sm px-4"
+                style={{
+                  border: "1px solid #e2e8f0",
+                  backgroundColor: "#ffffff",
+                  color: "#0f172a",
+                }}
+              >
+                View All Services{" "}
+                <i className="fa-solid fa-arrow-right ms-2"></i>
+              </Link>
+            </div>
           </div>
 
           <div className="row g-4">
             {[
               {
-                title: "Insurance verification, eligibility",
-                icon: "fa-syringe",
-                text: "Insurance verification is the process of confirming the validity and coverage of an insurance policy.",
-                highlighted: false,
+                title: "Accounts Receivable",
+                icon: "fa-chart-line",
+                link: "/services/accounts-receivable-management",
+                desc: "Recover lost revenue with aggressive AR follow-up and aging bucket management.",
               },
               {
-                title: "Claim Submission, eob's posting",
-                icon: "fa-lungs",
-                text: "Dental claim submission refers to the process of submitting a claim for reimbursement for dental services. It is important to note that dental claim submission can vary depending on the specific insurance plan and provider.",
-                highlighted: true,
+                title: "Claims Submission",
+                icon: "fa-file-invoice",
+                link: "/services/dental-claims-submission",
+                desc: "Reduce overhead with accurate, 24-hour clean claim generation and submission.",
               },
               {
-                title: "Outstanding claim resolution, aging working",
-                icon: "fa-pills",
-                text: "Outstanding claim resolution refers to the process of resolving and settling outstanding claims or disputes in a timely and fair manner.",
-                highlighted: false,
+                title: "Insurance Verification",
+                icon: "fa-shield-halved",
+                link: "/services/dental-insurance-verification",
+                desc: "Prevent denials before they happen with exhaustive patient eligibility breakdowns.",
               },
               {
-                title: "Denial Management",
-                icon: "fa-head-side-virus",
-                text: "Our team identifies, corrects, and resubmits denied claims quickly. We address root causes, reduce repeat denials, and protect your revenue from unnecessary loss.",
-                highlighted: false,
+                title: "Credentialing",
+                icon: "fa-id-badge",
+                link: "/services/dental-practice-credentialing",
+                desc: "Enroll smoothly with payer networks and maintain strict compliance seamlessly.",
               },
-              {
-                title: "AR Follow-up",
-                icon: "fa-arrow-down",
-                text: "We aggressively follow up on outstanding claims, reduce aging, and recover revenue stuck in 30-120+ day buckets. Your cashflow stays consistent and predictable.",
-                highlighted: false,
-              },
-              {
-                title: "Patient Scheduling",
-                icon: "fa-capsules",
-                text: "We assist practices with streamlined appointment scheduling, reminders, and patient communication — ensuring smoother operations and fewer no-shows.",
-                highlighted: false,
-              },
-              {
-                title: "Eligibility & Benefits Verification",
-                icon: "fa-user-nurse",
-                text: "Real-time insurance verification to prevent denials, improve clean claim rates, and ensure patients are covered before services are delivered.",
-                highlighted: false,
-              },
-              {
-                title: "Payment Posting & Reconciliation",
-                icon: "fa-heart-pulse",
-                text: "Accurate posting of EOBs, ERAs, patient payments, and adjustments to maintain clean financial records.",
-                highlighted: false,
-              },
-            ].map((feature, index) => (
-              <div key={index} className="col-12 col-md-6 col-lg-3">
-                <div
-                  className={`card h-100 border-0 rounded-4 p-4 shadow-sm ${feature.highlighted ? "" : "bg-white"}`}
-                  style={
-                    feature.highlighted
-                      ? { backgroundColor: "#13a195", color: "white" }
-                      : {}
-                  }
-                >
-                  <div className="card-body p-0">
+            ].map((service, idx) => (
+              <div key={idx} className="col-12 col-md-6 col-lg-3">
+                <Link href={service.link} className="text-decoration-none">
+                  <div
+                    className="card h-100 border-0 shadow-sm p-4 rounded-4 transition-hover-lift"
+                    style={{
+                      backgroundColor: "#f8fafc",
+                      border: "1px solid #f1f5f9",
+                    }}
+                  >
                     <div
-                      className="rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+                      className="rounded-circle d-flex align-items-center justify-content-center mb-4 bg-white shadow-sm"
                       style={{
                         width: "50px",
                         height: "50px",
-                        backgroundColor: feature.highlighted
-                          ? "rgba(255,255,255,0.2)"
-                          : "#e6f5f4",
-                        color: feature.highlighted ? "white" : "#13a195",
+                        color: "#2563eb",
                       }}
                     >
-                      <i className={`fa-solid ${feature.icon} fs-5`}></i>
+                      <i className={`fa-solid ${service.icon} fs-5`}></i>
                     </div>
                     <h4
-                      className={`h5 fw-bold mb-3 ${feature.highlighted ? "text-white" : "text-dark"}`}
+                      className="fw-bold mb-2 h5"
+                      style={{ color: "#0f172a" }}
                     >
-                      {feature.title}
+                      {service.title}
                     </h4>
                     <p
-                      className={`mb-0 small ${feature.highlighted ? "text-white" : "text-muted"}`}
-                      style={{ lineHeight: "1.6" }}
+                      className="small mb-0"
+                      style={{ color: "#64748b", lineHeight: "1.6" }}
                     >
-                      {feature.text}
+                      {service.desc}
                     </p>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Pledge Section */}
-      <section className="py-5 bg-white">
-        <div className="container py-5">
-          <div className="text-center mb-5 pb-3">
-            <h6
-              className="text-uppercase fw-semibold mb-3 text-muted"
-              style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-            >
-              Our Pledge To You
-            </h6>
-            <h2 className="display-4 fw-bold text-dark">
-              Why You Should Hire Our Firm
-            </h2>
-          </div>
-
-          <div className="row justify-content-center g-5 mb-5 text-start">
-            <div className="col-12 col-lg-4 px-lg-4">
-              <p
-                className="text-muted mb-4 pb-2"
-                style={{
-                  lineHeight: "1.8",
-                  fontSize: "1.05rem",
-                  fontWeight: "500",
-                }}
-              >
-                My pledge is to handle all billing-related tasks which includes
-                verifying insurance coverage, submitting claims, managing
-                accounts receivable and payable and generating reports.
-              </p>
-              <h6 className="fw-bold text-dark fs-5 mb-1">-Farha Ahmed</h6>
-              <p className="text-dark fw-bold mb-0">Project Manager</p>
-            </div>
-
-            <div className="col-12 col-lg-4 px-lg-4">
-              <p
-                className="text-muted mb-4 pb-2"
-                style={{
-                  lineHeight: "1.8",
-                  fontSize: "1.05rem",
-                  fontWeight: "500",
-                }}
-              >
-                My primary responsibility is to ensure that the dental practice
-                receives timely and accurate payments for their services and my
-                pledge also to maintain open communication with the dental
-                practice
-              </p>
-              <h6 className="fw-bold text-dark fs-5 mb-0">-Arthur Sajid HR</h6>
-            </div>
-
-            <div className="col-12 col-lg-4 px-lg-4">
-              <p
-                className="text-muted mb-4 pb-2"
-                style={{
-                  lineHeight: "1.8",
-                  fontSize: "1.05rem",
-                  fontWeight: "500",
-                }}
-              >
-                My pledge is to keep up with changes in billing regulations and
-                technology to ensure that my group of team providing the best
-                possible service to the dental practice
-              </p>
-              <h6 className="fw-bold text-dark fs-5 mb-1">
-                – Alex Ijaz Group-
-                <br />
-                <span className="mt-1 d-inline-block">Manager</span>
-              </h6>
-            </div>
-          </div>
-
-          <div className="text-center mt-5">
-            <Link
-              href="/services"
-              className="btn px-5 py-3 text-white fw-bold shadow-sm"
-              style={{
-                backgroundColor: "#13a195",
-                letterSpacing: "0.5px",
-                borderRadius: "8px",
-              }}
-            >
-              View All
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-5 position-relative bg-white overflow-hidden">
-        {/* Faint Background Image */}
-        <div
-          className="position-absolute w-100 h-100 top-0 start-0"
-          style={{
-            backgroundImage: "url('/images/consultant.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.07,
-            zIndex: 0,
-          }}
-        ></div>
-
-        <div className="container py-5 position-relative" style={{ zIndex: 1 }}>
+      {/* Feature Split - Asymmetric */}
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+        <div className="container py-5 mt-4">
           <div className="row align-items-center gy-5">
-            <div className="col-12 col-lg-5">
-              <img
-                src="/images/consultant.png"
-                alt="Dental Consultants"
-                className="img-fluid shadow-lg w-100"
-                style={{ borderRadius: "20px", objectFit: "cover" }}
-              />
-            </div>
-            <div className="col-12 col-lg-7 ps-lg-5 text-start">
-              <h2
-                className="display-4 fw-bold text-dark mb-4 pb-3"
-                style={{ lineHeight: "1.2" }}
-              >
-                Benefits of Hiring a Dental
-                <br />
-                Consultant
-              </h2>
-
-              <div className="mb-4">
-                <p
-                  style={{
-                    lineHeight: "1.8",
-                    color: "#4a4a4a",
-                    fontSize: "1.05rem",
-                  }}
-                >
-                  <strong className="text-dark fw-bold">
-                    Increase Practice Revenue:{" "}
-                  </strong>
-                  We identify financial gaps, optimize workflows, and improve
-                  collections through strategic billing improvements and
-                  efficient dental AR management.
-                </p>
-              </div>
-
-              <div className="mb-4 pb-4">
-                <p
-                  style={{
-                    lineHeight: "1.8",
-                    color: "#4a4a4a",
-                    fontSize: "1.05rem",
-                  }}
-                >
-                  <strong className="text-dark fw-bold">
-                    Drive Strategic Growth & Ensure Compliance:{" "}
-                  </strong>
-                  Collaborate with seasoned experts in dental insurance billing
-                  to maintain regulatory standards, submit claims accurately and
-                  support the long-term success and expansion of your practice.
-                </p>
-              </div>
-
-              <div
-                className="mt-2"
-                style={{
-                  height: "1px",
-                  width: "100%",
-                  backgroundColor: "#13a195",
-                  opacity: 0.8,
-                }}
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How Our Services Help Section */}
-      <section className="py-5 bg-white">
-        <div className="container py-5 text-center">
-          <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
-            <i
-              className="fa-solid fa-stethoscope"
-              style={{ color: "#13a195" }}
-            ></i>
-            <span
-              className="fw-bold text-uppercase text-muted"
-              style={{ letterSpacing: "1px", fontSize: "0.85rem" }}
-            >
-              Why Choose Us
-            </span>
-          </div>
-          <h2 className="display-5 fw-bold text-dark mb-4">
-            How Our Dental Billing Services Help
-          </h2>
-          <div className="row justify-content-center mb-5 pb-3">
-            <div className="col-12 col-lg-9">
-              <p className="text-muted fs-5" style={{ lineHeight: "1.8" }}>
-                Our expertise in dental medical billing services allows
-                practices to handle complex cross-coding between medical and
-                dental claims with confidence. We ensure accurate submissions,
-                timely insurance follow-ups, and reduced denials.
-              </p>
-            </div>
-          </div>
-
-          <div className="row align-items-center g-5">
-            {/* Left Column Features */}
-            <div className="col-12 col-lg-4 text-center text-lg-end">
-              <div className="d-flex flex-column gap-5">
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-end gap-4">
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-end"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    0% Claim Rejections
-                  </h5>
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-solid fa-exclamation fs-3"></i>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-end gap-4">
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-end"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    Faster Payments &<br className="d-none d-lg-block" /> Cash
-                    Flow
-                  </h5>
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-solid fa-credit-card fs-4"></i>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-end gap-4">
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-end"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    Dedicated Account
-                    <br className="d-none d-lg-block" /> Manager
-                  </h5>
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-solid fa-sitemap fs-4"></i>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-end gap-4">
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-end"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    Expertise in All
-                    <br className="d-none d-lg-block" /> Specialties
-                  </h5>
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-solid fa-dna fs-4"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Center Image */}
-            <div className="col-12 col-lg-4 px-4 py-4 py-lg-0">
-              <img
-                src="/images/services.png"
-                alt="Dental Billing Team"
-                className="img-fluid shadow"
-                style={{
-                  borderTopLeftRadius: "60px",
-                  borderTopRightRadius: "60px",
-                  borderBottomLeftRadius: "60px",
-                  borderBottomRightRadius: "60px",
-                  maxHeight: "450px",
-                  height: "100%",
-                  objectFit: "cover",
-                  width: "100%",
-                }}
-              />
-            </div>
-
-            {/* Right Column Features */}
-            <div className="col-12 col-lg-4 text-center text-lg-start">
-              <div className="d-flex flex-column gap-5">
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-4">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-regular fa-calendar fs-4"></i>
-                  </div>
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-start"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    Reduced AR Days
-                  </h5>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-4">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-regular fa-newspaper fs-4"></i>
-                  </div>
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-start"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    Transparent Reporting
-                  </h5>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-4">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-solid fa-check-double fs-4"></i>
-                  </div>
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-start"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    HIPAA-Compliant &<br className="d-none d-lg-block" /> Secure
-                    Operations
-                  </h5>
-                </div>
-
-                <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-4">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm"
-                    style={{
-                      width: "65px",
-                      height: "65px",
-                      backgroundColor: "#32958e",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className="fa-regular fa-clock fs-4"></i>
-                  </div>
-                  <h5
-                    className="fw-bold mb-0 text-dark fs-5 text-lg-start"
-                    style={{ lineHeight: "1.4" }}
-                  >
-                    End-to-End Revenue
-                    <br className="d-none d-lg-block" /> Cycle Management
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Appointment Section */}
-      <section
-        className="py-0 position-relative overflow-hidden"
-        style={{ backgroundColor: "#f8f9fA" }}
-      >
-        {/* Soft Opacity Background Image */}
-        <div
-          className="position-absolute w-100 h-100 top-0 start-0"
-          style={{
-            backgroundImage:
-              "url('/images/teamwork.png')" /* Reusing a generic photo for the backdrop */,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.12 /* Faintly visible */,
-            zIndex: 0,
-          }}
-        ></div>
-
-        <div className="container position-relative" style={{ zIndex: 1 }}>
-          <div className="row align-items-center justify-content-between pt-5 mt-3">
-            {/* Left Text Column */}
-            <div className="col-12 col-lg-6 text-start pb-5 mb-lg-5">
-              <div className="d-flex align-items-center gap-2 mb-3">
-                <i
-                  className="fa-solid fa-stethoscope"
-                  style={{ color: "#13a195" }}
-                ></i>
-                <span
-                  className="fw-bold text-uppercase"
-                  style={{
-                    color: "#2a3b4c",
-                    letterSpacing: "1px",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  Get an appointment
-                </span>
-              </div>
-
-              <h2
-                className="display-4 fw-bold text-dark mb-4 pb-2"
-                style={{ lineHeight: "1.2" }}
-              >
-                Schedule Your Appointment
-                <br />
-                Today
-              </h2>
-
-              <p className="text-muted fs-6 mb-5" style={{ lineHeight: "1.9" }}>
-                Connect with our billing experts today to streamline your claims
-                process and boost reimbursements. We will evaluate your current
-                billing system, identify areas for improvement, and create a
-                customized strategy to enhance financial performance.
-              </p>
-
-              <p
-                className="text-muted fs-6 mb-4 pb-2"
-                style={{ lineHeight: "1.9" }}
-              >
-                Book your consultation now and take the first step toward a more
-                profitable and stress-free practice.
-              </p>
-            </div>
-
-            {/* Right Doctor Image Placement */}
-            <div
-              className="col-12 col-lg-5 text-center text-lg-end d-flex align-items-end justify-content-center justify-content-lg-end"
-              style={{ alignSelf: "flex-end" }}
-            >
-              {/* Note: In order for the doctor image to naturally "sit" on the bottom border like the mockup, margin-bottom is set to 0. */}
-              <img
-                src="/images/doctor-min.png"
-                alt="Doctor"
-                className="img-fluid"
-                style={{
-                  maxHeight: "600px",
-                  objectFit: "contain",
-                  marginBottom: "-10px",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Teal CTA Banners Section */}
-      <section
-        className="py-5"
-        style={{ backgroundColor: "#f8f9fa", position: "relative" }}
-      >
-        <div className="container mt-4 mb-5">
-          {/* Top Slim Appointment Banner */}
-          <div
-            className="card border-0 mb-5 shadow-sm"
-            style={{ backgroundColor: "#13a195", borderRadius: "12px" }}
-          >
-            <div className="card-body p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
-              <div className="d-flex align-items-center gap-4">
+            <div className="col-12 col-lg-5 order-2 order-lg-1">
+              <div className="position-relative">
                 <div
-                  className="rounded-circle d-flex align-items-center justify-content-center"
+                  className="position-absolute w-100 h-100 rounded-4"
                   style={{
-                    width: "65px",
-                    height: "65px",
-                    backgroundColor: "rgba(0,0,0,0.1)",
+                    backgroundColor: "#2563eb",
+                    top: "20px",
+                    left: "-20px",
+                    zIndex: 0,
                   }}
-                >
-                  <i className="fa-regular fa-calendar-check text-white fs-4"></i>
-                </div>
-                <h3 className="text-white fw-bold mb-0 fs-4">
-                  Open for Appointments
-                </h3>
-              </div>
-              <div className="d-flex flex-column flex-sm-row gap-3">
-                <Link
-                  href="/contact"
-                  className="btn bg-white text-dark fw-semibold px-4 py-2"
-                  style={{ color: "#1c3b63", borderRadius: "6px" }}
-                >
-                  Make Appointment
-                </Link>
-                <Link
-                  href="/services"
-                  className="btn text-white fw-semibold px-4 py-2"
-                  style={{
-                    backgroundColor: "#1c3b63",
-                    borderRadius: "6px",
-                    border: "1px solid #1c3b63",
-                  }}
-                >
-                  All Services
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Newsletter & Doctor Banner */}
-          <div
-            className="card border-0 shadow-sm"
-            style={{
-              backgroundColor: "#13a195",
-              borderRadius: "12px",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            <div className="row g-0">
-              <div className="col-12 col-md-7 col-lg-8 p-5 z-1">
-                <h2 className="text-white fw-bold mb-4 display-6">
-                  Subscribe Our Newsletter
-                </h2>
-                <p
-                  className="text-white mb-0 fs-6"
-                  style={{ lineHeight: "1.8", opacity: "0.9", maxWidth: "80%" }}
-                >
-                  Get the latest insights on dental billing, updates, and proven
-                  strategies to maximize your practice's revenue cycle delivered
-                  straight to your inbox.
-                </p>
-              </div>
-              <div
-                className="col-12 col-md-5 col-lg-4 d-flex align-items-end justify-content-end justify-content-md-center position-relative mt-4 mt-md-0"
-                style={{ minHeight: "200px" }}
-              >
+                ></div>
                 <img
-                  src="/images/female_doctor.png"
-                  alt="Doctor"
-                  className="position-md-absolute bottom-0 z-2"
-                  style={{
-                    maxHeight: "350px",
-                    objectFit: "contain",
-                    right: "2rem",
-                  }}
+                  src="/images/consultant.png"
+                  alt="Dental Billing Consultants"
+                  className="img-fluid rounded-4 position-relative shadow-lg w-100"
+                  style={{ zIndex: 1, objectFit: "cover", minHeight: "500px" }}
                 />
               </div>
             </div>
+
+            <div className="col-12 col-lg-6 offset-lg-1 order-1 order-lg-2">
+              <p
+                className="fw-bold text-uppercase mb-2"
+                style={{ color: "#2563eb", letterSpacing: "1px" }}
+              >
+                Our Advantage
+              </p>
+              <h2
+                className="display-5 fw-bold mb-4"
+                style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+              >
+                We operate as an extension of your own team.
+              </h2>
+              <p
+                className="fs-5 mb-4"
+                style={{ color: "#475569", lineHeight: "1.8" }}
+              >
+                Our dedicated account managers integrate seamlessly with your
+                existing practice management software (Open Dental, Dentrix,
+                Eaglesoft, etc.) to handle the heavy lifting of revenue cycle
+                management.
+              </p>
+
+              <div className="d-flex flex-column gap-3 mt-4">
+                <div className="d-flex align-items-start gap-3">
+                  <div
+                    className="mt-1 d-flex align-items-center justify-content-center rounded-circle"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: "#dbeafe",
+                      color: "#2563eb",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-check fs-6 text-center"
+                      style={{ transform: "scale(0.7)" }}
+                    ></i>
+                  </div>
+                  <p
+                    className="mb-0 fw-medium"
+                    style={{ color: "#334155", fontSize: "1.1rem" }}
+                  >
+                    Zero setup fees and flexible monthly contracts.
+                  </p>
+                </div>
+                <div className="d-flex align-items-start gap-3">
+                  <div
+                    className="mt-1 d-flex align-items-center justify-content-center rounded-circle"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: "#dbeafe",
+                      color: "#2563eb",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-check fs-6 text-center"
+                      style={{ transform: "scale(0.7)" }}
+                    ></i>
+                  </div>
+                  <p
+                    className="mb-0 fw-medium"
+                    style={{ color: "#334155", fontSize: "1.1rem" }}
+                  >
+                    Daily transparent reporting & dedicated Slack channels.
+                  </p>
+                </div>
+                <div className="d-flex align-items-start gap-3">
+                  <div
+                    className="mt-1 d-flex align-items-center justify-content-center rounded-circle"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: "#dbeafe",
+                      color: "#2563eb",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-check fs-6 text-center"
+                      style={{ transform: "scale(0.7)" }}
+                    ></i>
+                  </div>
+                  <p
+                    className="mb-0 fw-medium"
+                    style={{ color: "#334155", fontSize: "1.1rem" }}
+                  >
+                    HIPAA-Compliant data protection standard across all
+                    accounts.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Why Partner With Us
-      <section className="py-5">
-        <div className="container py-5 text-center d-flex align-items-center justify-content-between gap-3">
-          <div>
-            <h1 className="fw-bold mb-3 ">Why Partner with a Dental Consultant?</h1>
-            <p className="text-muted mb-4 fw-bold mt-5">✔ Higher Collections & Reduced Claim Denials – Get paid faster with improved claim accuracy.</p>
-            <p className="text-muted mb-4 fw-bold">✔ More Time for Patient Care – Less time spent on billing means more focus on dentistry.</p>
-            <p className="text-muted mb-4 fw-bold">✔ Custom Strategies for Your Practice – We tailor our solutions based on your unique needs.</p>
-            <p className="text-muted mb-4 fw-bold">✔ Compliance & Industry Expertise – Stay updated with insurance policies, coding changes, and regulations.</p>
-            <p className="mt-5 text-muted">Let us help your practice thrive! </p>
+      {/* Dynamic CTA Section */}
+      <section
+        className="py-5 position-relative overflow-hidden"
+        style={{ backgroundColor: "#212529" }}
+      >
+        <div className="container py-5 position-relative z-2 text-center text-white">
+          <div
+            className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+            }}
+          >
+            <span className="fs-6 fw-medium text-white">
+              Ready for more revenue?
+            </span>
           </div>
-          <div>
-            <img src="/images/dentist_success.png" alt="" className="img-fluid" style={{borderRadius: "50%"}}/>
+          <h2
+            className="display-4 fw-bold mb-4 text-white"
+            style={{ letterSpacing: "-1px" }}
+          >
+            Take control of your practice's{" "}
+            <span style={{ color: "#d4af37" }}>growth.</span>
+          </h2>
+          <p
+            className="lead mx-auto mb-5 fw-light"
+            style={{ maxWidth: "650px", color: "#e2e8f0" }}
+          >
+            Join the hundreds of dental practices nationwide that trust us to
+            handle their revenue cycle. Let's maximize your collections
+            together.
+          </p>
+          <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+            <Link
+              href="/contact"
+              className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
+              style={{
+                backgroundColor: "#2563eb",
+                color: "#ffffff",
+                fontSize: "1.1rem",
+                border: "none",
+              }}
+            >
+              Get Your Free Audit
+            </Link>
           </div>
         </div>
-      </section> */}
 
-      {/* Contact Call To Action */}
-      {/* <section className="py-5">
-        <div className="container py-5 text-center">
-          <h2 className="fw-bold mb-3">Ready to transform your practice?</h2>
-          <p className="text-muted mb-4">Join hundreds of dental professionals who trust us with their revenue cycle.</p>
-          <button className="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow">Contact Us Today</button>
-        </div>
-      </section> */}
+        {/* Decorative Circles */}
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "600px",
+            height: "600px",
+            backgroundColor: "rgba(255,255,255,0.02)",
+            top: "-300px",
+            right: "-200px",
+            zIndex: 1,
+            border: "1px solid rgba(255,255,255,0.05)",
+          }}
+        ></div>
+        <div
+          className="position-absolute rounded-circle"
+          style={{
+            width: "400px",
+            height: "400px",
+            backgroundColor: "#2563eb",
+            opacity: 0.15,
+            bottom: "-200px",
+            left: "-100px",
+            zIndex: 1,
+            filter: "blur(60px)",
+          }}
+        ></div>
+      </section>
+
+      {/* Global Transition Handle embedded in styled JSX to lift cards globally */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        .transition-hover-lift {
+           transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .transition-hover-lift:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+        }
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+      `,
+        }}
+      />
     </>
   );
 }

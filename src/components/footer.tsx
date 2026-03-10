@@ -33,7 +33,17 @@ export default function Footer() {
               </div>
             </Link> */}
 
-            <img src="/images/logo.png" alt="" />
+            <img
+              src="/images/logo.png"
+              alt=""
+              style={{
+                width: "300px",
+                height: "200px",
+                marginTop: "-50px",
+                marginBottom: "-60px",
+                objectFit: "contain",
+              }}
+            />
 
             <p
               className="text-muted mb-5 pe-md-3 fw-medium"
