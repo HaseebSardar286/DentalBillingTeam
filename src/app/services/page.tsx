@@ -62,11 +62,11 @@ export default function Services() {
           paddingTop: "120px",
           paddingBottom: "80px",
         }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div
           className="container position-relative z-2 text-center text-white"
           style={{ maxWidth: "900px" }}
-        >
+         data-aos="fade-down" data-aos-duration="1000">
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
             style={{
@@ -151,14 +151,14 @@ export default function Services() {
       </section>
 
       {/* Core Services */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 mt-4">
           <div className="row mb-5 align-items-end">
             <div className="col-lg-8">
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 Core services
               </h2>
               <p className="fs-5 text-muted mb-0">
@@ -179,7 +179,7 @@ export default function Services() {
                       transition: "transform 0.3s ease, box-shadow 0.3s ease",
                       cursor: "pointer",
                     }}
-                    onMouseEnter={(e) => {
+                    data-aos="fade-up" data-aos-delay="100" onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-8px)";
                       e.currentTarget.style.boxShadow =
                         "0 15px 35px rgba(0,0,0,0.08)";
@@ -233,14 +233,14 @@ export default function Services() {
       </section>
 
       {/* Specialized Services */}
-      <section className="py-5" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-5" style={{ backgroundColor: "#ffffff" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 mt-4">
           <div className="row mb-5 align-items-end">
             <div className="col-lg-8">
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 Add on services
               </h2>
               <p className="fs-5 text-muted mb-0">
@@ -262,7 +262,7 @@ export default function Services() {
                       transition: "all 0.3s ease",
                       cursor: "pointer",
                     }}
-                    onMouseEnter={(e) => {
+                    data-aos="fade-up" data-aos-delay="100" onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = "#2563eb";
                       e.currentTarget.style.backgroundColor = "#ffffff";
                       e.currentTarget.style.boxShadow =
@@ -321,7 +321,7 @@ export default function Services() {
       <section
         className="py-5 position-relative overflow-hidden"
         style={{ backgroundColor: "#0f172a" }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 position-relative z-2 text-center text-white">
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
@@ -337,7 +337,7 @@ export default function Services() {
           <h2
             className="display-4 fw-bold mb-4 text-white"
             style={{ letterSpacing: "-1px" }}
-          >
+           data-aos="fade-up">
             Ready to Simplify Operations?
           </h2>
           <p

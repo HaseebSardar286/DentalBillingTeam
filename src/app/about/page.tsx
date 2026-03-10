@@ -15,10 +15,14 @@ export default function About() {
           paddingTop: "120px",
           paddingBottom: "80px",
         }}
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <div
           className="container position-relative z-2 text-center text-white"
           style={{ maxWidth: "900px" }}
+          data-aos="fade-down"
+          data-aos-duration="1000"
         >
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
@@ -88,7 +92,12 @@ export default function About() {
       </section>
 
       {/* About Us & Mission - Bento Layout */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section
+        className="py-5"
+        style={{ backgroundColor: "#f8fafc" }}
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div className="container py-5 mt-4">
           <div className="row g-5 align-items-center">
             {/* Left Content */}
@@ -96,6 +105,7 @@ export default function About() {
               <h2
                 className="display-5 fw-bold mb-4"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+                data-aos="fade-up"
               >
                 Our mission is to empower dental practices nationwide.
               </h2>
@@ -122,6 +132,8 @@ export default function About() {
                   <h3
                     className="display-6 fw-bold mb-1"
                     style={{ color: "#e2e8f0" }}
+                    data-aos="fade-up"
+                    data-aos-delay="50"
                   >
                     <Counter end={40} suffix="+" />
                   </h3>
@@ -136,6 +148,8 @@ export default function About() {
                   <h3
                     className="display-6 fw-bold mb-1"
                     style={{ color: "#2563eb" }}
+                    data-aos="fade-up"
+                    data-aos-delay="50"
                   >
                     <Counter end={220} suffix="+" />
                   </h3>
@@ -214,13 +228,18 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-5 bg-white">
+      <section
+        className="py-5 bg-white"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div className="container py-5 mt-4">
           <div className="row mb-5 text-center justify-content-center">
             <div className="col-lg-8">
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+                data-aos="fade-up"
               >
                 What Drives Us Forward
               </h2>
@@ -260,6 +279,8 @@ export default function About() {
                     backgroundColor: "#f8fafc",
                     border: "1px solid #e2e8f0",
                   }}
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
                   <div className="d-flex justify-content-center mb-4 mt-2">
                     <div
@@ -294,13 +315,19 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section
+        className="py-5"
+        style={{ backgroundColor: "#f8fafc" }}
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div className="container py-5">
           <div className="row mb-5 text-center justify-content-center">
             <div className="col-lg-8">
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+                data-aos="fade-up"
               >
                 The Experts Behind Your Success
               </h2>
@@ -333,8 +360,14 @@ export default function About() {
                 <div
                   className="card border-0 rounded-4 shadow-sm h-100 bg-white"
                   style={{ border: "1px solid #e2e8f0" }}
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
-                  <div className="card-body p-5">
+                  <div
+                    className="card-body p-5"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                  >
                     <div
                       className="rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center"
                       style={{
@@ -382,6 +415,8 @@ export default function About() {
       <section
         className="py-5 position-relative overflow-hidden"
         style={{ backgroundColor: "#212529" }}
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <div className="container py-5 position-relative z-2 text-center text-white">
           <div
@@ -394,8 +429,9 @@ export default function About() {
             <span className="fs-6 fw-medium text-white">Get Started</span>
           </div>
           <h2
-            className="display-4 fw-bold mb-4"
-            style={{ letterSpacing: "-1px", color: "#ffffff" }}
+            className="display-4 fw-bold mb-4 text-white"
+            style={{ letterSpacing: "-1px" }}
+            data-aos="fade-up"
           >
             Ready to Grow Your Practice?
           </h2>

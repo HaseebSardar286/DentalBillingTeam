@@ -15,7 +15,7 @@ export default function Home() {
           paddingTop: "120px",
           paddingBottom: "80px",
         }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div className="container position-relative z-2">
           <div className="row align-items-center">
             <div
@@ -174,14 +174,14 @@ export default function Home() {
       <section
         className="py-4 border-bottom"
         style={{ backgroundColor: "#ffffff", borderColor: "#f1f5f9" }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div className="container">
           <div className="row text-center justify-content-center align-items-center g-4">
-            <div className="col-12 col-md-3 border-end">
+            <div className="col-12 col-md-3 border-end" data-aos="fade-up" data-aos-delay="100">
               <h3
                 className="display-6 fw-bold mb-1"
                 style={{ color: "#0f172a" }}
-              >
+               data-aos="fade-up" data-aos-delay="50">
                 <Counter end={40} suffix="+" />
               </h3>
               <p
@@ -191,11 +191,11 @@ export default function Home() {
                 National Awards
               </p>
             </div>
-            <div className="col-12 col-md-3 border-end">
+            <div className="col-12 col-md-3 border-end" data-aos="fade-up" data-aos-delay="100">
               <h3
                 className="display-6 fw-bold mb-1"
                 style={{ color: "#0f172a" }}
-              >
+               data-aos="fade-up" data-aos-delay="50">
                 <Counter end={220} suffix="+" />
               </h3>
               <p
@@ -205,11 +205,11 @@ export default function Home() {
                 Expert Doctors
               </p>
             </div>
-            <div className="col-12 col-md-3 border-end">
+            <div className="col-12 col-md-3 border-end" data-aos="fade-up" data-aos-delay="100">
               <h3
                 className="display-6 fw-bold mb-1"
                 style={{ color: "#0f172a" }}
-              >
+               data-aos="fade-up" data-aos-delay="50">
                 <Counter end={5} suffix="k+" />
               </h3>
               <p
@@ -219,11 +219,11 @@ export default function Home() {
                 Satisfied Patients
               </p>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-3" data-aos="fade-up" data-aos-delay="400">
               <h3
                 className="display-6 fw-bold mb-1"
                 style={{ color: "#0f172a" }}
-              >
+               data-aos="fade-up" data-aos-delay="50">
                 <Counter end={8} suffix="k+" />
               </h3>
               <p
@@ -238,10 +238,10 @@ export default function Home() {
       </section>
 
       {/* How Our System Works - Bento Box Layout */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5">
           <div className="row mb-5 text-center justify-content-center">
-            <div className="col-lg-8">
+            <div className="col-lg-8" data-aos="fade-up">
               <p
                 className="fw-bold text-uppercase mb-2"
                 style={{ color: "#2563eb", letterSpacing: "1px" }}
@@ -251,7 +251,7 @@ export default function Home() {
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 Built for Dental Success
               </h2>
               <p className="fs-5 mb-0" style={{ color: "#475569" }}>
@@ -262,11 +262,11 @@ export default function Home() {
           </div>
 
           <div className="row g-4 justify-content-center">
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
               <div
                 className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
                 style={{ border: "1px solid #e2e8f0" }}
-              >
+               data-aos="fade-up" data-aos-delay="100">
                 <div
                   className="rounded-circle d-flex align-items-center justify-content-center mb-4"
                   style={{
@@ -295,11 +295,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
               <div
                 className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
                 style={{ border: "1px solid #e2e8f0" }}
-              >
+               data-aos="fade-up" data-aos-delay="100">
                 <div
                   className="rounded-circle d-flex align-items-center justify-content-center mb-4"
                   style={{
@@ -328,11 +328,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
               <div
                 className="card h-100 border-0 shadow-sm rounded-4 p-5 text-start bg-white"
                 style={{ border: "1px solid #e2e8f0" }}
-              >
+               data-aos="fade-up" data-aos-delay="100">
                 <div
                   className="rounded-circle d-flex align-items-center justify-content-center mb-4"
                   style={{
@@ -365,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* Featured Services */}
-      <section className="py-5 bg-white">
+      <section className="py-5 bg-white" data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5">
           <div className="row align-items-center mb-5">
             <div className="col-12 col-md-8 text-start">
@@ -378,7 +378,7 @@ export default function Home() {
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 Outsource the heavy lifting.
               </h2>
             </div>
@@ -425,7 +425,7 @@ export default function Home() {
                 desc: "Enroll smoothly with payer networks and maintain strict compliance seamlessly.",
               },
             ].map((service, idx) => (
-              <div key={idx} className="col-12 col-md-6 col-lg-3">
+              <div key={idx} className="col-12 col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay={idx * 100}>
                 <Link href={service.link} className="text-decoration-none">
                   <div
                     className="card h-100 border-0 shadow-sm p-4 rounded-4 transition-hover-lift"
@@ -433,7 +433,7 @@ export default function Home() {
                       backgroundColor: "#f8fafc",
                       border: "1px solid #f1f5f9",
                     }}
-                  >
+                   data-aos="fade-up" data-aos-delay="100">
                     <div
                       className="rounded-circle d-flex align-items-center justify-content-center mb-4 bg-white shadow-sm"
                       style={{
@@ -465,10 +465,10 @@ export default function Home() {
       </section>
 
       {/* Feature Split - Asymmetric */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section className="py-5" style={{ backgroundColor: "#f8fafc" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 mt-4">
           <div className="row align-items-center gy-5">
-            <div className="col-12 col-lg-5 order-2 order-lg-1">
+            <div className="col-12 col-lg-5 order-2 order-lg-1" data-aos="fade-right">
               <div className="position-relative">
                 <div
                   className="position-absolute w-100 h-100 rounded-4"
@@ -488,7 +488,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-12 col-lg-6 offset-lg-1 order-1 order-lg-2">
+            <div className="col-12 col-lg-6 offset-lg-1 order-1 order-lg-2" data-aos="fade-left">
               <p
                 className="fw-bold text-uppercase mb-2"
                 style={{ color: "#2563eb", letterSpacing: "1px" }}
@@ -498,7 +498,7 @@ export default function Home() {
               <h2
                 className="display-5 fw-bold mb-4"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 We operate as an extension of your own team.
               </h2>
               <p
@@ -589,7 +589,7 @@ export default function Home() {
       <section
         className="py-5 position-relative overflow-hidden"
         style={{ backgroundColor: "#212529" }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 position-relative z-2 text-center text-white">
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
@@ -605,7 +605,7 @@ export default function Home() {
           <h2
             className="display-4 fw-bold mb-4 text-white"
             style={{ letterSpacing: "-1px" }}
-          >
+           data-aos="fade-up">
             Take control of your practice's{" "}
             <span style={{ color: "#d4af37" }}>growth.</span>
           </h2>

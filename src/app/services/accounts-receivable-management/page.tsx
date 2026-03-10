@@ -12,11 +12,11 @@ export default function ServicePage() {
           paddingTop: "120px",
           paddingBottom: "80px",
         }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div
           className="container position-relative z-2 text-center text-white"
           style={{ maxWidth: "900px" }}
-        >
+         data-aos="fade-down" data-aos-duration="1000">
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
             style={{
@@ -97,14 +97,14 @@ export default function ServicePage() {
       </section>
 
       {/* Overview Area */}
-      <section className="py-5" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-5" style={{ backgroundColor: "#ffffff" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 mt-4">
           <div className="row justify-content-center">
             <div className="col-lg-10 text-center">
               <h2
                 className="display-5 fw-bold mb-5"
                 style={{ color: "#212529", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 The Process Overview
               </h2>
               <div
@@ -136,14 +136,14 @@ export default function ServicePage() {
       </section>
 
       {/* Features & Benefits - Structured Bento/Grid Layout */}
-      <section className="py-5" style={{ backgroundColor: "#F8F9FA" }}>
+      <section className="py-5" style={{ backgroundColor: "#F8F9FA" }} data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5">
           <div className="row mb-5 text-center justify-content-center">
             <div className="col-lg-8">
               <h2
                 className="display-5 fw-bold mb-3"
                 style={{ color: "#212529", letterSpacing: "-0.5px" }}
-              >
+               data-aos="fade-up">
                 Why it matters
               </h2>
               <p className="fs-5 text-muted mb-0">
@@ -310,7 +310,7 @@ export default function ServicePage() {
       <section
         className="py-5 position-relative overflow-hidden"
         style={{ backgroundColor: "#212529" }}
-      >
+       data-aos="fade-up" data-aos-duration="800">
         <div className="container py-5 position-relative z-2 text-center text-white">
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
@@ -324,7 +324,7 @@ export default function ServicePage() {
           <h2
             className="display-4 fw-bold mb-4 text-white"
             style={{ letterSpacing: "-1px" }}
-          >
+           data-aos="fade-up">
             Ready to Simplify Your Dental Billing?
           </h2>
           <p

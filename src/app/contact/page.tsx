@@ -53,11 +53,19 @@ export default function Contact() {
       {/* Modern SaaS Hero Section */}
       <section
         className="position-relative overflow-hidden d-flex flex-column justify-content-center"
-        style={{ backgroundColor: "#0f172a", minHeight: "40vh", paddingTop: "120px", paddingBottom: "80px" }}
+        style={{
+          backgroundColor: "#0f172a",
+          minHeight: "40vh",
+          paddingTop: "120px",
+          paddingBottom: "80px",
+        }}
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <div
           className="container position-relative z-2 text-center text-white"
           style={{ maxWidth: "900px" }}
+          data-aos="fade-in"
         >
           <div
             className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4"
@@ -84,7 +92,8 @@ export default function Contact() {
               lineHeight: "1.1",
             }}
           >
-            Reach out to our dental billing experts today.
+            Reach out to our dental{" "}
+            <span style={{ color: "#d4af37" }}>billing experts today.</span>
           </h1>
           <p
             className="lead mx-auto mb-5"
@@ -130,7 +139,12 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Bento Layout */}
-      <section className="py-5" style={{ backgroundColor: "#f8fafc" }}>
+      <section
+        className="py-5"
+        style={{ backgroundColor: "#f8fafc" }}
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div className="container py-5 mt-4">
           <div
             className="row g-4 justify-content-center"
@@ -235,7 +249,11 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-5 bg-white">
+      <section
+        className="py-5 bg-white"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div className="container py-5">
           <div className="row g-5 align-items-stretch">
             {/* Left Column: Form */}
@@ -243,6 +261,7 @@ export default function Contact() {
               <h2
                 className="display-5 fw-bold mb-4"
                 style={{ color: "#0f172a", letterSpacing: "-0.5px" }}
+                data-aos="fade-up"
               >
                 Send Us A Message
               </h2>
@@ -448,6 +467,8 @@ export default function Contact() {
       <section
         className="py-5 position-relative overflow-hidden"
         style={{ backgroundColor: "#212529" }}
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <div className="container py-5 position-relative z-2 text-center text-white">
           <div
@@ -460,8 +481,9 @@ export default function Contact() {
             <span className="fs-6 fw-medium text-white">Let's talk</span>
           </div>
           <h2
-            className="display-4 fw-bold mb-4"
-            style={{ letterSpacing: "-1px", color: "#ffffff" }}
+            className="display-4 fw-bold mb-4 text-white"
+            style={{ letterSpacing: "-1px" }}
+            data-aos="fade-up"
           >
             Dental Billing Without The Hassle
           </h2>
