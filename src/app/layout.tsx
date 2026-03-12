@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Roboto_Slab } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import AosInitializer from "@/components/AosInitializer";
 
 const robotoSlab = Roboto_Slab({
@@ -33,9 +31,7 @@ export default function RootLayout({
       </head>
       <body className={`${robotoSlab.variable} d-flex flex-column min-vh-100`}>
         <AosInitializer />
-        <Header />
-        <main className="flex-grow-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

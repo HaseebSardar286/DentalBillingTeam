@@ -66,7 +66,7 @@ export default function Header() {
             <ul className="navbar-nav align-items-lg-center gap-lg-4 gap-3 mb-2 mb-lg-0 mt-3 mt-lg-0">
               <li className="nav-item">
                 <Link
-                  href="/"
+                  href="/home"
                   className={`nav-link fw-medium ${pathname === "/" ? "active" : "text-dark"}`}
                 >
                   Home
@@ -91,41 +91,67 @@ export default function Header() {
                 >
                   Services
                 </a>
-                <ul className="dropdown-menu border-0 shadow mt-2 rounded-3" aria-labelledby="servicesDropdown">
-<li>
-                    <Link href="/services" className="dropdown-item py-2 fw-medium">
+                <ul
+                  className="dropdown-menu border-0 shadow mt-2 rounded-3"
+                  aria-labelledby="servicesDropdown"
+                >
+                  <li>
+                    <Link
+                      href="/services"
+                      className="dropdown-item py-2 fw-medium"
+                    >
                       All Services
                     </Link>
                   </li>
-                  <li><hr className="dropdown-divider" /></li>
                   <li>
-                    <Link href="/services/dental-insurance-billing" className="dropdown-item py-2">
-                       Dental Insurance Billing
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/dental-insurance-billing"
+                      className="dropdown-item py-2"
+                    >
+                      Dental Insurance Billing
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/dental-claims-submission" className="dropdown-item py-2">
-                       Dental Claims Submission
+                    <Link
+                      href="/services/dental-claims-submission"
+                      className="dropdown-item py-2"
+                    >
+                      Dental Claims Submission
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/insurance-payment-posting" className="dropdown-item py-2">
-                       Insurance Payment Posting
+                    <Link
+                      href="/services/insurance-payment-posting"
+                      className="dropdown-item py-2"
+                    >
+                      Insurance Payment Posting
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/accounts-receivable-management" className="dropdown-item py-2">
-                       Accounts Receivable Management
+                    <Link
+                      href="/services/accounts-receivable-management"
+                      className="dropdown-item py-2"
+                    >
+                      Accounts Receivable Management
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/dental-insurance-verification" className="dropdown-item py-2">
-                       Dental Insurance Verification
+                    <Link
+                      href="/services/dental-insurance-verification"
+                      className="dropdown-item py-2"
+                    >
+                      Dental Insurance Verification
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/dental-practice-credentialing" className="dropdown-item py-2">
-                       Dental Practice Credentialing
+                    <Link
+                      href="/services/dental-practice-credentialing"
+                      className="dropdown-item py-2"
+                    >
+                      Dental Practice Credentialing
                     </Link>
                   </li>
                 </ul>
