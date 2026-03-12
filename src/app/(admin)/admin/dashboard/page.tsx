@@ -2,8 +2,10 @@ export default function DashboardPage() {
   return (
     <div className="container py-5 mt-4">
       <h1 className="display-4 fw-bold mb-4">Admin Dashboard</h1>
-      <p className="lead">Welcome to the admin panel. Your data and statistics will appear here.</p>
-      
+      <p className="lead">
+        Welcome to the admin panel. Your data and statistics will appear here.
+      </p>
+
       <div className="row mt-5">
         <div className="col-md-4 mb-4">
           <div className="card shadow-sm border-0 p-4">

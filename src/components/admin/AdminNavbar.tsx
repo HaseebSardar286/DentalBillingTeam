@@ -1,7 +1,7 @@
 export default function AdminNavbar() {
   return (
     <nav
-      className="navbar navbar-expand-lg bg-white border-bottom px-4 py-3 shadow-sm"
+      className="navbar navbar-expand-lg bg-white border-bottom px-4 py-3 shadow-sm sticky-top"
       style={{ zIndex: 10 }}
     >
       <div className="container-fluid gap-3">
