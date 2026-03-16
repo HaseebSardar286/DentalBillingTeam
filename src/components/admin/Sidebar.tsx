@@ -5,26 +5,80 @@ import { useState, useEffect } from "react";
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [dropdownPos, setDropdownPos] = useState({ bottom: 0, left: 0 });
+  const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
+  const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
+
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLElement>,
+    label: string,
+  ) => {
+    if (isOpen || isMobile) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    // Since the inner container is always 260px wide but the outer is cut to 80px when closed,
+    // rect.right will be 260. We manually clamp it to 80px (the visible width) + 10px margin.
+    setTooltipPos({
+      top: rect.top + rect.height / 2,
+      left: rect.left + 80,
+    });
+    setHoveredLabel(label);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLabel(null);
+  };
+
+  const handleDropdownClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isDropdownOpen) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      if (isOpen) {
+        setDropdownPos({
+          bottom: window.innerHeight - rect.top + 10,
+          left: rect.left,
+        });
+      } else {
+        // Force the left position to the edge of the 80px visible sidebar
+        setDropdownPos({
+          bottom: window.innerHeight - rect.bottom,
+          left: rect.left + 80,
+        });
+      }
+    }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   useEffect(() => {
+    const handleClickOutside = () => setIsDropdownOpen(false);
+    if (isDropdownOpen) document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isDropdownOpen]);
+
+  useEffect(() => {
+    // Keep track of the last mobile state to prevent resize events (like scrollbars appearing)
+    // from re-triggering the sidebar open state when it shouldn't.
+    let lastIsMobile = window.innerWidth < 992;
+
     const handleResize = () => {
       const mobile = window.innerWidth < 992;
-      setIsMobile(mobile);
-      if (mobile) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
+      if (mobile !== lastIsMobile) {
+        setIsMobile(mobile);
+        setIsOpen(!mobile);
+        lastIsMobile = mobile;
       }
     };
 
     // Initial check
-    handleResize();
+    setIsMobile(lastIsMobile);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleSideBar = () => {
+  const toggleSideBar = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     setIsOpen(!isOpen);
   };
 
@@ -33,6 +87,7 @@ export default function Sidebar() {
       {/* Mobile Toggle Button (Only visible on small screens to open sidebar) */}
       {isMobile && !isOpen && (
         <button
+          type="button"
           className="btn btn-dark shadow-sm position-fixed rounded-circle d-flex align-items-center justify-content-center"
           style={{
             width: "50px",
@@ -67,8 +122,7 @@ export default function Sidebar() {
         style={{
           width: isOpen ? "260px" : isMobile ? "0px" : "80px",
           transition: "width 0.3s ease, transform 0.3s ease",
-          transform:
-            isMobile && !isOpen ? "translateX(-100%)" : "translateX(0)",
+          transform: isMobile && !isOpen ? "translateX(-100%)" : "none",
           zIndex: isMobile ? 1050 : 1,
           overflowX: "hidden",
           overflowY: "auto",
@@ -76,7 +130,7 @@ export default function Sidebar() {
       >
         <div className="d-flex flex-column h-100" style={{ width: "260px" }}>
           {/* Sidebar Header */}
-          <div className="d-flex align-items-center justify-content-between p-3 border-bottom border-secondary mb-3">
+          <div className="d-flex align-items-center justify-content-between p-2 border-secondary mb-2">
             <span
               className="fs-5 fw-bold text-nowrap"
               style={{
@@ -102,97 +156,71 @@ export default function Sidebar() {
           </div>
 
           {/* Sidebar Nav Links */}
-          <ul className="nav nav-pills flex-column mb-auto gap-2 px-2">
-            <li className="nav-item">
-              <Link
-                href="/admin/dashboard"
-                className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
-              >
-                <i
-                  className="fa-solid fa-chart-pie"
-                  style={{ width: "24px", textAlign: "center" }}
-                ></i>
-                <span
-                  className="ms-3 text-nowrap"
-                  style={{
-                    opacity: isOpen ? 1 : 0,
-                    transition: "opacity 0.2s",
-                  }}
+          <ul className="nav nav-pills flex-column mb-auto gap-2 px-2 mt-3">
+            {[
+              {
+                label: "Dashboard",
+                href: "/admin/dashboard",
+                icon: "fa-chart-pie",
+              },
+              {
+                label: "Leads Management",
+                href: "/admin/leads",
+                icon: "fa-users",
+              },
+              {
+                label: "Analytics",
+                href: "/admin/analytics",
+                icon: "fa-chart-line",
+              },
+              { label: "Services", href: "/admin/services", icon: "fa-tooth" },
+              {
+                label: "Testimonials",
+                href: "/admin/testimonials",
+                icon: "fa-quote-left",
+              },
+              { label: "Users", href: "/admin/users", icon: "fa-user" },
+              {
+                label: "Contact Messages",
+                href: "/admin/leads",
+                icon: "fa-message",
+              },
+              { label: "Settings", href: "/admin/settings", icon: "fa-gear" },
+            ].map((item, idx) => (
+              <li className="nav-item" key={idx}>
+                <Link
+                  href={item.href}
+                  className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
+                  onMouseEnter={(e) => handleMouseEnter(e, item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  Dashboard
-                </span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                href="/admin/leads"
-                className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
-              >
-                <i
-                  className="fa-solid fa-users"
-                  style={{ width: "24px", textAlign: "center" }}
-                ></i>
-                <span
-                  className="ms-3 text-nowrap"
-                  style={{
-                    opacity: isOpen ? 1 : 0,
-                    transition: "opacity 0.2s",
-                  }}
-                >
-                  Leads Management
-                </span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                href="/admin/analytics"
-                className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
-              >
-                <i
-                  className="fa-solid fa-chart-line"
-                  style={{ width: "24px", textAlign: "center" }}
-                ></i>
-                <span
-                  className="ms-3 text-nowrap"
-                  style={{
-                    opacity: isOpen ? 1 : 0,
-                    transition: "opacity 0.2s",
-                  }}
-                >
-                  Analytics
-                </span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                href="/admin/settings"
-                className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
-              >
-                <i
-                  className="fa-solid fa-gear"
-                  style={{ width: "24px", textAlign: "center" }}
-                ></i>
-                <span
-                  className="ms-3 text-nowrap"
-                  style={{
-                    opacity: isOpen ? 1 : 0,
-                    transition: "opacity 0.2s",
-                  }}
-                >
-                  Settings
-                </span>
-              </Link>
-            </li>
+                  <i
+                    className={`fa-solid ${item.icon}`}
+                    style={{ width: "24px", textAlign: "center" }}
+                  ></i>
+                  <span
+                    className="ms-3 text-nowrap"
+                    style={{
+                      opacity: isOpen ? 1 : 0,
+                      transition: "opacity 0.2s",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {/* Sidebar Footer / User Info */}
           <div className="p-3 border-top border-secondary mt-auto">
-            <div className="dropdown pb-2">
+            <div className="dropdown position-relative">
               <a
                 href="#"
-                className="d-flex align-items-center text-white text-decoration-none dropdown-toggle px-2 py-1 rounded sidebar-link"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                className="d-flex align-items-center text-white text-decoration-none px-2 rounded sidebar-link"
+                onClick={handleDropdownClick}
+                aria-expanded={isDropdownOpen}
               >
                 <img
                   src="https://ui-avatars.com/api/?name=Admin+User&background=20C997&color=fff"
@@ -206,15 +234,27 @@ export default function Sidebar() {
                   style={{
                     opacity: isOpen ? 1 : 0,
                     transition: "opacity 0.2s",
+                    fontSize: "14px",
                   }}
                 >
                   Admin Menu
                 </strong>
               </a>
-              <ul className="dropdown-menu dropdown-menu-dark shadow">
+              <ul
+                className={`dropdown-menu dropdown-menu-dark shadow ${
+                  isDropdownOpen ? "show" : ""
+                }`}
+                style={{
+                  position: "fixed",
+                  bottom: dropdownPos.bottom,
+                  left: dropdownPos.left,
+                  margin: 0,
+                  zIndex: 1060,
+                }}
+              >
                 <li>
                   <a className="dropdown-item" href="#">
-                    Profile Profile
+                    Profile
                   </a>
                 </li>
                 <li>
@@ -230,6 +270,26 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
+
+      {/* Tooltip Portal-ish */}
+      {!isOpen && !isMobile && hoveredLabel && (
+        <div
+          className="bg-dark text-white px-3 py-2 rounded shadow"
+          style={{
+            position: "fixed",
+            top: tooltipPos.top,
+            left: tooltipPos.left,
+            transform: "translateY(-50%)",
+            zIndex: 1060,
+            fontSize: "14px",
+            pointerEvents: "none",
+            whiteSpace: "nowrap",
+            border: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
+          {hoveredLabel}
+        </div>
+      )}
 
       <style
         dangerouslySetInnerHTML={{

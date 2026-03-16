@@ -32,18 +32,21 @@ export default function Header() {
             </span>
           </Link> */}
 
-          <img
-            src="/images/logo.png"
-            alt=""
-            className="w-15 img-fluid"
-            style={{
-              width: "250px",
-              height: "150px",
-              marginTop: "-50px",
-              marginBottom: "-60px",
-              objectFit: "contain",
-            }}
-          />
+          <div className="navbar-brand d-flex align-items-center">
+            <img
+              src="/images/logo.png"
+              alt="Dental Billing Team Logo"
+              className="w-15 img-fluid"
+              style={{
+                width: "250px",
+                height: "150px",
+                marginTop: "-50px",
+                marginBottom: "-60px",
+                objectFit: "contain",
+                pointerEvents: "none",
+              }}
+            />
+          </div>
 
           {/* Mobile Hamburger */}
           <button

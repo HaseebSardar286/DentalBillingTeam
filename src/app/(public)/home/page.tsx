@@ -5,7 +5,7 @@ import Counter from "@/components/Counter";
 
 export default function Home() {
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       {/* SaaS Hero Section - Modern Full Height */}
       <section
         className="position-relative overflow-hidden d-flex flex-column justify-content-center"
@@ -759,6 +759,6 @@ export default function Home() {
       `,
         }}
       />
-    </>
+    </div>
   );
 }

@@ -1,31 +1,41 @@
+import { Chart as ChartJS } from "chart.js/auto";
+import { Line } from "react-chartjs-2";
 export default function DashboardPage() {
   return (
-    <div className="container py-5 mt-4">
-      <h1 className="display-4 fw-bold mb-4">Admin Dashboard</h1>
-      <p className="lead">
-        Welcome to the admin panel. Your data and statistics will appear here.
-      </p>
+    <>
+      <div className="container">
+        <h2 className="fw-bold">Admin Dashboard</h2>
+        <p>
+          Welcome to the admin panel. Your data and statistics will appear here.
+        </p>
 
-      <div className="row mt-5">
-        <div className="col-md-4 mb-4">
-          <div className="card shadow-sm border-0 p-4">
-            <h5 className="fw-bold">Users</h5>
-            <p className="fs-3 text-primary mb-0">1,204</p>
+        <div className="row">
+          <div className="col-md-3 mb-4">
+            <div className="card shadow-lg border-0 p-4">
+              <h6 className="fw-bold">Visitors Today</h6>
+              <p className="fs-4 text-primary mb-0">320</p>
+            </div>
           </div>
-        </div>
-        <div className="col-md-4 mb-4">
-          <div className="card shadow-sm border-0 p-4">
-            <h5 className="fw-bold">Revenue</h5>
-            <p className="fs-3 text-success mb-0">$45,200</p>
+          <div className="col-md-3 mb-4">
+            <div className="card shadow-lg border-0 p-4">
+              <h6 className="fw-bold">Total Visitors</h6>
+              <p className="fs-4 text-primary mb-0">1,204</p>
+            </div>
           </div>
-        </div>
-        <div className="col-md-4 mb-4">
-          <div className="card shadow-sm border-0 p-4">
-            <h5 className="fw-bold">Reports</h5>
-            <p className="fs-3 text-warning mb-0">28</p>
+          <div className="col-md-3 mb-4">
+            <div className="card shadow-lg border-0 p-4">
+              <h6 className="fw-bold">Total Leads</h6>
+              <p className="fs-4 text-success mb-0">410</p>
+            </div>
+          </div>
+          <div className="col-md-3 mb-4">
+            <div className="card shadow-lg border-0 p-4">
+              <h6 className="fw-bold">Conversion %</h6>
+              <p className="fs-4 text-warning mb-0">3.2%</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
