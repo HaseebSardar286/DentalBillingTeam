@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="sticky-top bg-white border-bottom shadow-sm">
-      <nav className="navbar navbar-expand-lg py-3">
+      <nav className="navbar navbar-expand-lg navbar-light py-3">
         <div className="container">
           {/* Logo */}
           {/* <Link
@@ -50,13 +50,14 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className="navbar-toggler border-0 shadow-none"
+            className="navbar-toggler border-0 shadow-none ms-auto"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarContent"
             aria-controls="navbarContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style={{ position: "relative", zIndex: 10 }}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -65,6 +66,7 @@ export default function Header() {
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navbarContent"
+            style={{ visibility: "visible" }}
           >
             <ul className="navbar-nav align-items-lg-center gap-lg-4 gap-3 mb-2 mb-lg-0 mt-3 mt-lg-0">
               <li className="nav-item">

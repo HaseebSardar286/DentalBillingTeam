@@ -1,5 +1,5 @@
-import { Chart as ChartJS } from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import TrafficSourceChart from "@/components/admin/TrafficSourceChart";
+import Chart from "@/components/admin/VisitorsChart";
 export default function DashboardPage() {
   return (
     <>
@@ -36,6 +36,10 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      <Chart />
+
+      <TrafficSourceChart />
     </>
   );
 }
