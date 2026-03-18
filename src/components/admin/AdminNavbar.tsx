@@ -6,7 +6,7 @@ export default function AdminNavbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-lg bg-white border-bottom px-3 py-1 shadow-sm sticky-top w-100"
+      className="navbar navbar-expand-lg border-bottom px-3 py-1 shadow-sm sticky-top w-100"
       style={{ zIndex: 10 }}
     >
       <div className="container-fluid align-items-center">
@@ -46,7 +46,10 @@ export default function AdminNavbar() {
           id="adminNavbarContent"
         >
           {/* Search Bar */}
-          <form className="d-flex flex-grow-1 mx-lg-4 mb-3 mb-lg-0" style={{ maxWidth: "400px" }}>
+          <form
+            className="d-flex flex-grow-1 mx-lg-4 mb-3 mb-lg-0"
+            style={{ maxWidth: "400px" }}
+          >
             <div className="input-group">
               <span
                 className="input-group-text bg-light border-end-0"

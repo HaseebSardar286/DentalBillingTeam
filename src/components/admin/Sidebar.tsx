@@ -114,7 +114,7 @@ export default function Sidebar() {
 
       {/* Sidebar Container */}
       <div
-        className={`bg-dark text-white flex-shrink-0 transition-all border-end border-secondary shadow-sm ${
+        className={`flex-shrink-0 transition-all border-end border-secondary shadow-sm ${
           isMobile
             ? "position-fixed h-100 top-0 start-0"
             : "h-100 position-relative"
@@ -130,33 +130,70 @@ export default function Sidebar() {
       >
         <div className="d-flex flex-column h-100" style={{ width: "260px" }}>
           {/* Sidebar Header */}
-          <div className="d-flex align-items-center justify-content-between p-2 border-secondary mb-2">
-            <span
-              className="fs-5 fw-bold text-nowrap"
-              style={{
-                opacity: isOpen ? 1 : 0,
-                transition: "opacity 0.2s",
-                paddingLeft: "10px",
-              }}
-            >
-              DBT Admin
-            </span>
+          <div
+            className="d-flex align-items-center border-secondary position-relative"
+            style={{ minHeight: "80px" }}
+          >
             <button
-              className="btn btn-link text-white fs-4 p-0 text-decoration-none"
+              className="btn d-flex align-items-center justify-content-center p-0"
               onClick={toggleSideBar}
               style={{
-                position: !isOpen && !isMobile ? "absolute" : "static",
-                left: !isOpen && !isMobile ? "28px" : "auto",
+                position: "absolute",
+                left: "20px",
                 zIndex: 10,
+                width: "40px",
+                height: "40px",
+                backgroundColor: "#001BFF",
+                borderRadius: "10px",
+                border: "none",
+                boxShadow: "0 2px 4px rgba(0,27,255,0.2)"
               }}
               aria-label="Toggle sidebar"
             >
-              <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
+              <i
+                className={`fa-solid ${isOpen ? "fa-tooth" : "fa-bars"}`}
+                style={{
+                  color: "#ffffff",
+                  fontSize: "18px"
+                }}
+              ></i>
             </button>
+            <div
+              className="d-flex flex-column justify-content-center text-nowrap"
+              style={{
+                marginLeft: "75px",
+                opacity: isOpen ? 1 : 0,
+                transition: "opacity 0.2s",
+                pointerEvents: isOpen ? "auto" : "none",
+              }}
+            >
+              <span
+                className="fw-bold"
+                style={{
+                  fontSize: "20px",
+                  color: "#0a2540",
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.5px"
+                }}
+              >
+                DentalCRM
+              </span>
+              <span
+                className="text-muted fw-semibold"
+                style={{
+                  fontSize: "13px",
+                  lineHeight: "1",
+                  letterSpacing: "0.2px",
+                  color: "#6c757d"
+                }}
+              >
+                Marketing System
+              </span>
+            </div>
           </div>
 
           {/* Sidebar Nav Links */}
-          <ul className="nav nav-pills flex-column mb-auto gap-2 px-2 mt-3">
+          <ul className="nav nav-pills flex-column mb-auto gap-2 px-2">
             {[
               {
                 label: "Dashboard",
@@ -168,29 +205,29 @@ export default function Sidebar() {
                 href: "/admin/leads",
                 icon: "fa-users",
               },
-              {
-                label: "Analytics",
-                href: "/admin/analytics",
-                icon: "fa-chart-line",
-              },
+              // {
+              //   label: "Analytics",
+              //   href: "/admin/analytics",
+              //   icon: "fa-chart-line",
+              // },
               { label: "Services", href: "/admin/services", icon: "fa-tooth" },
               {
                 label: "Testimonials",
                 href: "/admin/testimonials",
                 icon: "fa-quote-left",
               },
-              { label: "Users", href: "/admin/users", icon: "fa-user" },
-              {
-                label: "Contact Messages",
-                href: "/admin/leads",
-                icon: "fa-message",
-              },
+              // { label: "Users", href: "/admin/users", icon: "fa-user" },
+              // {
+              //   label: "Contact Messages",
+              //   href: "/admin/leads",
+              //   icon: "fa-message",
+              // },
               { label: "Settings", href: "/admin/settings", icon: "fa-gear" },
             ].map((item, idx) => (
               <li className="nav-item" key={idx}>
                 <Link
                   href={item.href}
-                  className="nav-link text-white px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
+                  className="nav-link text-dark px-3 py-2 rounded-3 sidebar-link d-flex align-items-center w-100"
                   onMouseEnter={(e) => handleMouseEnter(e, item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -218,7 +255,7 @@ export default function Sidebar() {
             <div className="dropdown position-relative">
               <a
                 href="#"
-                className="d-flex align-items-center text-white text-decoration-none px-2 rounded sidebar-link"
+                className="d-flex align-items-center text-dark text-decoration-none px-2 rounded sidebar-link"
                 onClick={handleDropdownClick}
                 aria-expanded={isDropdownOpen}
               >
