@@ -217,11 +217,11 @@ export default function Sidebar() {
                 icon: "fa-quote-left",
               },
               // { label: "Users", href: "/admin/users", icon: "fa-user" },
-              // {
-              //   label: "Contact Messages",
-              //   href: "/admin/leads",
-              //   icon: "fa-message",
-              // },
+              {
+                label: "Contact Messages",
+                href: "/admin/contact-messages",
+                icon: "fa-envelope",
+              },
               { label: "Settings", href: "/admin/settings", icon: "fa-gear" },
             ].map((item, idx) => (
               <li className="nav-item" key={idx}>
