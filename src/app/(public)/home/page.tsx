@@ -77,7 +77,7 @@ export default function Home() {
                     border: "none",
                   }}
                 >
-                  Get a Free Audit
+                  Get a Free Consultation
                 </Link>
                 <Link
                   href="/services"
@@ -707,7 +707,7 @@ export default function Home() {
                 border: "none",
               }}
             >
-              Get Your Free Audit
+              Get Consultation
             </Link>
           </div>
         </div>

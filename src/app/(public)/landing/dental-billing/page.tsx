@@ -32,12 +32,13 @@ export default function LandingDentalBilling() {
                 operate efficiently without administrative stress.
               </p>
               <div className="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                <button
+                <Link
+                  href="/contact"
                   className="btn btn-light btn-lg px-4 py-3"
                   style={{ backgroundColor: "#0d9488", color: "white" }}
                 >
-                  Get Audit
-                </button>
+                  Get Consultation
+                </Link>
                 <button
                   className="btn btn-outline-light btn-lg px-4 py-3"
                   style={{ backgroundColor: "#1c3b63", color: "white" }}

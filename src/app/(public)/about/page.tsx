@@ -445,7 +445,7 @@ export default function About() {
           </p>
           <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
             <Link
-              href="/"
+              href="/contact"
               className="btn btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg"
               style={{
                 backgroundColor: "#2563eb",
@@ -454,7 +454,7 @@ export default function About() {
                 border: "none",
               }}
             >
-              Get a Free Audit
+              Get a Free Consultation
             </Link>
             <Link
               href="/contact"

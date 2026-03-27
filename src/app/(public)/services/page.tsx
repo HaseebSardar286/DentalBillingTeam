@@ -356,7 +356,7 @@ export default function Services() {
                 fontSize: "1.1rem",
               }}
             >
-              Book structured audit
+              Book a consultation
             </Link>
           </div>
         </div>

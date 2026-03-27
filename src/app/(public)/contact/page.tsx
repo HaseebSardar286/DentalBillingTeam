@@ -27,25 +27,38 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate a network request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-      // Clear success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+
+      if (response.ok) {
+        setIsSuccess(true);
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -269,7 +282,7 @@ export default function Contact() {
                 className="fs-5 mb-5"
                 style={{ color: "#475569", lineHeight: "1.7" }}
               >
-                Whether you need a free revenue cycle audit, have questions
+                Whether you need a free revenue cycle consultation, have questions
                 about our credentialing process, or want to explore outsourcing
                 options, fill out the form below.
               </p>
@@ -385,8 +398,8 @@ export default function Contact() {
                     <option value="" disabled>
                       Select a topic...
                     </option>
-                    <option value="Free Audit">
-                      Request Free Billing Audit
+                    <option value="Free Consultation">
+                      Request Free Billing Consultation
                     </option>
                     <option value="General Billing">
                       General Billing Services

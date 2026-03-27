@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Search,
   MoreVertical,
@@ -9,54 +9,11 @@ import {
   Trash2,
 } from "lucide-react";
 
-// Mock Data
-const initialMessages = [
-  {
-    id: 1,
-    name: "Dr. John Doe",
-    email: "john@dentalpractice.com",
-    phone: "(555) 123-4567",
-    subject: "Free Audit",
-    message: "I am interested in a free billing audit for my practice. We've been experiencing high rejection rates lately.",
-    date: "Oct 24, 10:15 AM",
-    status: "Unread",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane.smith@smileclinic.com",
-    phone: "(555) 987-6543",
-    subject: "Credentialing",
-    message: "We need help credentialing two new dentists who just joined our team. What is the process?",
-    date: "Oct 23, 02:30 PM",
-    status: "Read",
-  },
-  {
-    id: 3,
-    name: "Robert Brown",
-    email: "rbrown@familydental.net",
-    phone: "(555) 456-7890",
-    subject: "AR Recovery",
-    message: "Looking for assistance with our aging AR. We have several claims past 90 days.",
-    date: "Oct 22, 11:45 AM",
-    status: "Replied",
-  },
-  {
-    id: 4,
-    name: "Emily Davis",
-    email: "emily.d@outlook.com",
-    phone: "(555) 222-3333",
-    subject: "General Billing",
-    message: "Do you offer full outsourced billing services or only specific modules?",
-    date: "Oct 21, 09:10 AM",
-    status: "Unread",
-  },
-];
-
 export default function ContactMessagesPage() {
-  const [messages, setMessages] = useState(initialMessages);
+  const [messages, setMessages] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
   
   // Side Panel State
   const [selectedMessage, setSelectedMessage] = useState<any | null>(null);
@@ -70,6 +27,27 @@ export default function ContactMessagesPage() {
     return matchesSearch && matchesStatus;
   });
 
+  // Fetch from Express API
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  const fetchMessages = async () => {
+    setIsLoading(true);
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${API_URL}/api/contact`);
+      if (response.ok) {
+        const data = await response.json();
+        setMessages(data);
+      }
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const getStatusBadgeColor = (status: string) => {
     switch (status.toLowerCase()) {
       case "unread": return { bg: "#fee2e2", text: "#b91c1c" }; // Red
@@ -79,12 +57,20 @@ export default function ContactMessagesPage() {
     }
   };
 
-  const handleRowClick = (message: any) => {
+  const handleRowClick = async (message: any) => {
     // Mark as read if unread
     if (message.status === "Unread") {
-      const updatedMessages = messages.map(m => m.id === message.id ? { ...m, status: "Read" } : m);
-      setMessages(updatedMessages);
-      setSelectedMessage({ ...message, status: "Read" });
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        await fetch(`${API_URL}/api/contact/${message.id}/status`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: "Read" })
+        });
+        const updatedMessages = messages.map(m => m.id === message.id ? { ...m, status: "Read" } : m);
+        setMessages(updatedMessages);
+        setSelectedMessage({ ...message, status: "Read" });
+      } catch (e) { console.error("Could not update status", e); }
     } else {
       setSelectedMessage(message);
     }
@@ -94,16 +80,34 @@ export default function ContactMessagesPage() {
     setSelectedMessage(null);
   };
 
-  const handleDelete = (id: number) => {
-    setMessages(messages.filter(m => m.id !== id));
-    setSelectedMessage(null);
+  const handleDelete = async (id: string | number) => {
+    if (confirm("Are you sure you want to delete this message?")) {
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        await fetch(`${API_URL}/api/contact/${id}`, { method: 'DELETE' });
+        setMessages(messages.filter(m => m.id !== id));
+        setSelectedMessage(null);
+      } catch (e) {
+        console.error("Failed to delete", e);
+      }
+    }
   };
 
-  const markAsReplied = (id: number) => {
-    const updatedMessages = messages.map(m => m.id === id ? { ...m, status: "Replied" } : m);
-    setMessages(updatedMessages);
-    if (selectedMessage && selectedMessage.id === id) {
-      setSelectedMessage({ ...selectedMessage, status: "Replied" });
+  const markAsReplied = async (id: string | number) => {
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      await fetch(`${API_URL}/api/contact/${id}/status`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: "Replied" })
+      });
+      const updatedMessages = messages.map(m => m.id === id ? { ...m, status: "Replied" } : m);
+      setMessages(updatedMessages);
+      if (selectedMessage && selectedMessage.id === id) {
+        setSelectedMessage({ ...selectedMessage, status: "Replied" });
+      }
+    } catch (e) {
+      console.error("Failed to update status", e);
     }
   };
 
@@ -170,7 +174,13 @@ export default function ContactMessagesPage() {
                   </tr>
                 </thead>
                 <tbody className="border-top-0">
-                  {filteredMessages.length > 0 ? (
+                  {isLoading ? (
+                    <tr>
+                      <td colSpan={5} className="text-center py-5 text-muted">
+                        Loading messages...
+                      </td>
+                    </tr>
+                  ) : filteredMessages.length > 0 ? (
                     filteredMessages.map((message) => {
                       const badgeColors = getStatusBadgeColor(message.status);
                       const isSelected = selectedMessage?.id === message.id;
